@@ -44,10 +44,10 @@ export function Services() {
               </p>
             </Reveal>
             <Reveal delay={0.1}>
-              <h2 className="mt-6 font-display text-balance text-[2.5rem] font-light leading-[1.02] tracking-[-0.03em] sm:text-6xl md:text-7xl">
+              <h2 className="mt-6 font-display text-balance text-[2.5rem] font-bold leading-[1.02] tracking-[-0.03em] sm:text-6xl md:text-7xl">
                 Crafted across
                 <br />
-                <span className="italic font-extralight text-muted-foreground">
+                <span className="italic font-semibold text-muted-foreground">
                   every medium.
                 </span>
               </h2>
@@ -76,12 +76,12 @@ export function Services() {
             >
               <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/5 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
               <div className="flex items-center justify-between">
-                <span className="font-display text-2xl font-light tracking-tight text-muted-foreground">
+                <span className="font-display text-2xl font-bold tracking-tight text-muted-foreground">
                   {s.n}
                 </span>
                 <span className="h-1.5 w-1.5 rounded-full bg-foreground/60" />
               </div>
-              <h3 className="mt-12 font-display text-[1.6rem] font-light leading-[1.1] tracking-[-0.02em]">
+              <h3 className="mt-12 font-display text-[1.6rem] font-bold leading-[1.1] tracking-[-0.02em]">
                 {s.t}
               </h3>
               <p className="mt-3 text-sm leading-[1.65] tracking-[-0.005em] text-muted-foreground">
