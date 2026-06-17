@@ -5,6 +5,7 @@ import { Background } from "@/components/Background";
 import { CursorGlow } from "@/components/CursorGlow";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { Loader } from "@/components/Loader";
+import { Marquee } from "@/components/Marquee";
 import { Nav } from "@/components/Nav";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
