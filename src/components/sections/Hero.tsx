@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { Reveal } from "./Reveal";
+import { Reveal } from "../Reveal";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
