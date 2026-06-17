@@ -23,14 +23,14 @@ export function About() {
 
         <motion.h2
           style={{ y: yHeading }}
-          className="mt-6 font-display text-balance text-[2.5rem] font-light leading-[1.02] tracking-[-0.03em] sm:text-6xl md:text-7xl lg:text-[5.5rem]"
+          className="mt-6 font-display text-balance text-[2.5rem] font-bold leading-[1.02] tracking-[-0.03em] sm:text-6xl md:text-7xl lg:text-[5.5rem]"
         >
           <StaggerGroup stagger={0.12}>
             <StaggerItem className="block overflow-hidden">
               <span className="block">Visuals with intent.</span>
             </StaggerItem>
             <StaggerItem className="block overflow-hidden">
-              <span className="block italic font-extralight text-muted-foreground">
+              <span className="block italic font-semibold text-muted-foreground">
                 Stories that linger.
               </span>
             </StaggerItem>

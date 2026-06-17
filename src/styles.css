@@ -81,12 +81,12 @@
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    font-weight: 300;
-    letter-spacing: -0.025em;
-    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
     font-optical-sizing: auto;
   }
-  h1 { letter-spacing: -0.035em; }
+  h1 { font-weight: 800; letter-spacing: -0.045em; }
   p { line-height: 1.7; }
 }
 

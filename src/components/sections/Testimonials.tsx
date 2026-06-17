@@ -41,10 +41,10 @@ export function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-          className="mt-6 text-balance text-center font-display text-[2.5rem] font-light leading-[1.02] tracking-[-0.03em] sm:text-6xl md:text-7xl"
+          className="mt-6 text-balance text-center font-display text-[2.5rem] font-bold leading-[1.02] tracking-[-0.03em] sm:text-6xl md:text-7xl"
         >
           Words from{" "}
-          <span className="italic font-extralight text-muted-foreground">collaborators</span>
+          <span className="italic font-semibold text-muted-foreground">collaborators</span>
           .
         </motion.h2>
 
@@ -65,7 +65,7 @@ export function Testimonials() {
                     <div className="text-sm tracking-[0.4em] text-foreground/90">
                       ★★★★★
                     </div>
-                    <p className="mt-6 text-balance font-display text-[1.5rem] font-light leading-[1.3] tracking-[-0.015em] sm:text-[2rem]">
+                    <p className="mt-6 text-balance font-display text-[1.5rem] font-bold leading-[1.3] tracking-[-0.015em] sm:text-[2rem]">
                       "{reviews[i]}"
                     </p>
                   </motion.div>
