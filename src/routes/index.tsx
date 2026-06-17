@@ -53,6 +53,7 @@ function Index() {
 
       <main className="relative z-10">
         <Hero />
+        <Marquee />
         <About />
         <Services />
         <Stats />
