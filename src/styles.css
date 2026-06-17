@@ -167,4 +167,14 @@
 .font-display {
   font-family: var(--font-display);
   font-optical-sizing: auto;
+  font-variation-settings: "opsz" 144;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "ss01", "ss02";
+}
+
+@utility text-pretty {
+  text-wrap: pretty;
 }
