@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { Reveal } from "../Reveal";
 
-const stats = [
-  { v: "100+", l: "Projects Completed" },
-  { v: "50+", l: "Happy Clients" },
-  { v: "2+", l: "Years of Experience" },
+const stats: { v: string; suffix?: string; l: string }[] = [
+  { v: "100", suffix: "+", l: "Projects Completed" },
+  { v: "50", suffix: "+", l: "Happy Clients" },
+  { v: "2", suffix: "+", l: "Years of Experience" },
   { v: "24/7", l: "Communication & Support" },
 ];
 
@@ -19,7 +19,14 @@ export function Stats() {
                 whileHover={{ y: -4 }}
                 className="glass relative overflow-hidden rounded-3xl p-8 text-center"
               >
-                <div className="font-display text-5xl tracking-tight sm:text-6xl">{s.v}</div>
+                <div className="font-display text-5xl tracking-tight sm:text-6xl">
+                  {s.v}
+                  {s.suffix && (
+                    <span className="ml-0.5 inline-block font-sans font-light text-foreground/70">
+                      {s.suffix}
+                    </span>
+                  )}
+                </div>
                 <div className="mt-3 text-[0.7rem] uppercase tracking-[0.25em] text-muted-foreground">
                   {s.l}
                 </div>
