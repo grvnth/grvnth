@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { Reveal } from "../Reveal";
 
-const stats = [
-  { v: "100+", l: "Projects Completed" },
-  { v: "50+", l: "Happy Clients" },
-  { v: "2+", l: "Years of Experience" },
+const stats: { v: string; suffix?: string; l: string }[] = [
+  { v: "100", suffix: "+", l: "Projects Completed" },
+  { v: "50", suffix: "+", l: "Happy Clients" },
+  { v: "2", suffix: "+", l: "Years of Experience" },
   { v: "24/7", l: "Communication & Support" },
 ];
 
