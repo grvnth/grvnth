@@ -19,7 +19,14 @@ export function Stats() {
                 whileHover={{ y: -4 }}
                 className="glass relative overflow-hidden rounded-3xl p-8 text-center"
               >
-                <div className="font-display text-5xl tracking-tight sm:text-6xl">{s.v}</div>
+                <div className="font-display text-5xl tracking-tight sm:text-6xl">
+                  {s.v}
+                  {s.suffix && (
+                    <span className="ml-0.5 inline-block font-sans font-light text-foreground/70">
+                      {s.suffix}
+                    </span>
+                  )}
+                </div>
                 <div className="mt-3 text-[0.7rem] uppercase tracking-[0.25em] text-muted-foreground">
                   {s.l}
                 </div>
