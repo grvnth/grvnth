@@ -19,16 +19,16 @@ import { WhyMe } from "@/components/sections/WhyMe";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "GRVNTH — Graphic Designer & Video Editor" },
+      { title: "Granth Agrawal | Freelance Graphic Designer & Video Editor" },
       {
         name: "description",
         content:
-          "Premium graphic design and video editing for brands, creators, and startups. Turning ideas into impact.",
+          "Creating premium graphic design, motion graphics, and video editing that help brands, creators, and startups grow through impactful visual storytelling.",
       },
-      { property: "og:title", content: "GRVNTH — Graphic Designer & Video Editor" },
+      { property: "og:title", content: "Granth Agrawal | Freelance Graphic Designer & Video Editor" },
       {
         property: "og:description",
-        content: "Premium graphic design and video editing for brands, creators, and startups.",
+        content: "Creating premium graphic design, motion graphics, and video editing that help brands, creators, and startups grow through impactful visual storytelling.",
       },
     ],
   }),
