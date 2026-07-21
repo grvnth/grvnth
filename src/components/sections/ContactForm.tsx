@@ -160,19 +160,51 @@ export function ContactForm() {
               {errors.message && <p className="mt-1 text-xs text-red-400">{errors.message}</p>}
             </div>
 
+            <div>
+              <label className="mb-2 block text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">
+                Send via
+              </label>
+              <div className="flex flex-wrap gap-2">
+                {([
+                  { id: "whatsapp", label: "WhatsApp", hint: "Recommended" },
+                  { id: "email", label: "Email", hint: null },
+                ] as { id: Method; label: string; hint: string | null }[]).map((m) => (
+                  <button
+                    type="button"
+                    key={m.id}
+                    onClick={() => setMethod(m.id)}
+                    className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs tracking-wide transition ${
+                      method === m.id
+                        ? "border-white/40 bg-white/[0.08] text-foreground"
+                        : "border-white/10 bg-white/[0.02] text-muted-foreground hover:border-white/20 hover:text-foreground"
+                    }`}
+                  >
+                    {m.label}
+                    {m.hint && (
+                      <span className="rounded-full bg-white/10 px-2 py-0.5 text-[0.55rem] uppercase tracking-[0.2em] text-foreground/80">
+                        {m.hint}
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <motion.button
               type="submit"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium tracking-tight text-background transition hover:bg-foreground/90"
             >
-              Send message
+              {method === "whatsapp" ? "Send via WhatsApp" : "Send via Email"}
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14M13 5l7 7-7 7" />
               </svg>
             </motion.button>
             <p className="text-center text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground/70">
-              Opens in your email app · replies within 24h
+              {method === "whatsapp"
+                ? "Opens WhatsApp with your message · replies within 24h"
+                : "Opens in your email app · replies within 24h"}
             </p>
           </motion.div>
         )}
