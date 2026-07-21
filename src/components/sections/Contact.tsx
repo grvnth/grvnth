@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Reveal } from "../Reveal";
+import { ContactForm } from "./ContactForm";
 
 const channels = [
   {
