@@ -4,9 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 const budgets = ["< ₹10k", "₹10k – ₹50k", "₹50k – ₹1L", "₹1L+", "Let's discuss"];
 
 const RECIPIENT = "grvnth.design@gmail.com";
+const WHATSAPP = "919549946123";
+
+type Method = "whatsapp" | "email";
 
 export function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", budget: budgets[1], message: "" });
+  const [method, setMethod] = useState<Method>("whatsapp");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [sent, setSent] = useState(false);
 
@@ -25,16 +29,22 @@ export function ContactForm() {
     ev.preventDefault();
     if (!validate()) return;
     const subject = `New project enquiry from ${form.name}`;
-    const body = [
+    const lines = [
       `Name: ${form.name}`,
       `Email: ${form.email}`,
       `Budget: ${form.budget}`,
       "",
       "Message:",
       form.message,
-    ].join("\n");
-    const url = `mailto:${RECIPIENT}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = url;
+    ];
+    if (method === "whatsapp") {
+      const text = [`Hi Granth, ${subject.toLowerCase()}.`, "", ...lines].join("\n");
+      const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank", "noopener,noreferrer");
+    } else {
+      const url = `mailto:${RECIPIENT}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+      window.location.href = url;
+    }
     setSent(true);
   }
 
