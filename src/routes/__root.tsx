@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Granth Agrawal | Freelance Graphic Designer & Video Editor" },
       { name: "description", content: "Creating premium graphic design, motion graphics, and video editing that help brands, creators, and startups grow through impactful visual storytelling." },
-      { name: "author", content: "GRVNTH" },
+      { name: "author", content: "Granth Agrawal" },
       { property: "og:title", content: "Granth Agrawal | Freelance Graphic Designer & Video Editor" },
       { property: "og:description", content: "Creating premium graphic design, motion graphics, and video editing that help brands, creators, and startups grow through impactful visual storytelling." },
       { property: "og:type", content: "website" },

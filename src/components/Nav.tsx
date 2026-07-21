@@ -18,7 +18,7 @@ export function Nav() {
     >
       <div className="glass flex items-center justify-between rounded-full px-5 py-3 sm:px-6">
         <a href="#top" className="font-display text-xl tracking-tight">
-          GRVNTH<span className="text-muted-foreground">.</span>
+          Granth<span className="text-muted-foreground">.</span>
         </a>
         <nav className="hidden items-center gap-7 md:flex">
           {links.map((l) => (
