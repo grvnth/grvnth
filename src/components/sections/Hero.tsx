@@ -88,9 +88,7 @@ export function Hero() {
               </svg>
             </motion.a>
             <motion.a
-              href="https://wa.me/919549946123"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contact"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="glass-strong inline-flex w-full items-center justify-center rounded-full px-7 py-4 text-sm font-medium text-foreground sm:w-auto"
