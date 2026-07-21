@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Reveal } from "../Reveal";
+import { ContactForm } from "./ContactForm";
 
 const channels = [
   {
@@ -65,7 +66,19 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.2}>
-          <div className="mt-14 grid gap-3 sm:grid-cols-2">
+          <div className="mt-14">
+            <ContactForm />
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.3}>
+          <p className="mt-14 text-center text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">
+            Or reach out directly
+          </p>
+        </Reveal>
+
+        <Reveal delay={0.35}>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
             {channels.map((c) => (
               <motion.a
                 key={c.name}
