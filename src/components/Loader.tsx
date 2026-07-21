@@ -47,7 +47,7 @@ export function Loader() {
             animate={{ y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            GRVNTH
+            Granth Agrawal
           </motion.p>
         </motion.div>
 
