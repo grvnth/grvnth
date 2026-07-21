@@ -78,7 +78,7 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.35}>
-          <div className="mt-14 grid gap-3 sm:grid-cols-2">
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
             {channels.map((c) => (
               <motion.a
                 key={c.name}
