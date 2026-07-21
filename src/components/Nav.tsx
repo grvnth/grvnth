@@ -32,9 +32,7 @@ export function Nav() {
           ))}
         </nav>
         <a
-          href="https://wa.me/919549946123"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#contact"
           className="rounded-full bg-foreground px-4 py-2 text-xs font-medium uppercase tracking-wider text-background transition-transform hover:scale-[1.03]"
         >
           Let's Talk
