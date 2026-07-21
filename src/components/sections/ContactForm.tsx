@@ -67,9 +67,13 @@ export function ContactForm() {
                 <path d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 className="font-display text-2xl">Message ready to send</h3>
+            <h3 className="font-display text-2xl">
+              {method === "whatsapp" ? "Opening WhatsApp…" : "Message ready to send"}
+            </h3>
             <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-              Your email app just opened with everything filled in. Hit send and I'll get back to you within 24 hours.
+              {method === "whatsapp"
+                ? "WhatsApp just opened with your message pre-filled. Hit send and I'll reply within 24 hours."
+                : "Your email app just opened with everything filled in. Hit send and I'll get back to you within 24 hours."}
             </p>
             <button
               type="button"
