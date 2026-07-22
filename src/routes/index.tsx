@@ -50,6 +50,7 @@ function Index() {
 
       <Background />
       <CursorGlow />
+      <ScrollProgress />
       <Nav />
 
       <main className="relative z-10">
