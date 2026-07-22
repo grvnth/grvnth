@@ -1,12 +1,30 @@
-import { motion } from "framer-motion";
+import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { Reveal } from "../Reveal";
 
-const stats: { v: string; suffix?: string; l: string }[] = [
-  { v: "100", suffix: "+", l: "Projects Completed" },
-  { v: "50", suffix: "+", l: "Happy Clients" },
-  { v: "2", suffix: "+", l: "Years of Experience" },
+const stats: { v: number | string; suffix?: string; l: string }[] = [
+  { v: 100, suffix: "+", l: "Projects Completed" },
+  { v: 50, suffix: "+", l: "Happy Clients" },
+  { v: 2, suffix: "+", l: "Years of Experience" },
   { v: "24/7", l: "Communication & Support" },
 ];
+
+function CountUp({ to }: { to: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const mv = useMotionValue(0);
+  const spring = useSpring(mv, { stiffness: 60, damping: 20, mass: 1 });
+  const rounded = useTransform(spring, (v) => Math.round(v).toLocaleString());
+  const [display, setDisplay] = useState("0");
+
+  useEffect(() => {
+    if (inView) mv.set(to);
+  }, [inView, mv, to]);
+
+  useEffect(() => rounded.on("change", (v) => setDisplay(v)), [rounded]);
+
+  return <span ref={ref}>{display}</span>;
+}
 
 export function Stats() {
   return (
@@ -14,13 +32,14 @@ export function Stats() {
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s, i) => (
-            <Reveal key={s.l} delay={i * 0.08}>
+            <Reveal key={s.l} delay={i * 0.1}>
               <motion.div
-                whileHover={{ y: -4 }}
-                className="glass relative overflow-hidden rounded-3xl p-8 text-center"
+                whileHover={{ y: -6, transition: { type: "spring", stiffness: 260, damping: 18 } }}
+                className="glass card-glow group relative overflow-hidden rounded-3xl p-8 text-center"
               >
-                <div className="font-display text-5xl tracking-tight sm:text-6xl">
-                  {s.v}
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.10),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="font-display text-5xl font-bold tracking-tight sm:text-6xl">
+                  {typeof s.v === "number" ? <CountUp to={s.v} /> : s.v}
                   {s.suffix && (
                     <span className="ml-0.5 inline-block font-sans font-light text-foreground/70">
                       {s.suffix}

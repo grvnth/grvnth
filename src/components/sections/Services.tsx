@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform, type Variants } from "framer-motion";
-import { useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform, useScroll, type Variants } from "framer-motion";
+import { useRef, type MouseEvent } from "react";
 import { Reveal } from "../Reveal";
 
 const services = [
@@ -17,9 +17,78 @@ const cardVariants: Variants = {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
   },
 };
+
+function ServiceCard({ s }: { s: (typeof services)[number] }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const rx = useMotionValue(0);
+  const ry = useMotionValue(0);
+  const glowX = useMotionValue(50);
+  const glowY = useMotionValue(50);
+  const srx = useSpring(rx, { stiffness: 180, damping: 18 });
+  const sry = useSpring(ry, { stiffness: 180, damping: 18 });
+
+  const onMove = (e: MouseEvent<HTMLDivElement>) => {
+    const el = ref.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width;
+    const py = (e.clientY - r.top) / r.height;
+    ry.set((px - 0.5) * 10);
+    rx.set(-(py - 0.5) * 10);
+    glowX.set(px * 100);
+    glowY.set(py * 100);
+  };
+  const reset = () => {
+    rx.set(0);
+    ry.set(0);
+  };
+
+  const bg = useTransform(
+    [glowX, glowY],
+    ([x, y]) =>
+      `radial-gradient(400px circle at ${x}% ${y}%, rgba(255,255,255,0.10), transparent 55%)`,
+  );
+
+  return (
+    <motion.div
+      ref={ref}
+      variants={cardVariants}
+      onMouseMove={onMove}
+      onMouseLeave={reset}
+      style={{ rotateX: srx, rotateY: sry, transformPerspective: 900 }}
+      className="glass card-glow group relative h-full overflow-hidden rounded-3xl p-7 [transform-style:preserve-3d]"
+    >
+      <motion.div
+        style={{ background: bg }}
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+      />
+      <div className="relative flex items-center justify-between">
+        <span className="font-display text-2xl font-bold tracking-tight text-muted-foreground">
+          {s.n}
+        </span>
+        <span className="relative flex h-1.5 w-1.5">
+          <span className="absolute inline-flex h-full w-full rounded-full bg-foreground/40" style={{ animation: "pulse-ring 2.4s ease-out infinite" }} />
+          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-foreground/70" />
+        </span>
+      </div>
+      <h3 className="relative mt-12 font-display text-[1.6rem] font-bold leading-[1.1] tracking-[-0.02em]">
+        {s.t}
+      </h3>
+      <p className="relative mt-3 text-sm leading-[1.65] tracking-[-0.005em] text-muted-foreground">
+        {s.d}
+      </p>
+      <div className="relative mt-6 flex items-center gap-2 text-[0.68rem] uppercase tracking-[0.3em] text-muted-foreground/70 transition-colors duration-500 group-hover:text-foreground">
+        <span>Explore</span>
+        <svg className="h-3 w-3 transition-transform duration-500 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M5 12h14M13 5l7 7-7 7" />
+        </svg>
+      </div>
+    </motion.div>
+  );
+}
 
 export function Services() {
   const ref = useRef<HTMLDivElement>(null);
@@ -62,32 +131,12 @@ export function Services() {
           viewport={{ once: true, margin: "-100px" }}
           variants={{
             hidden: {},
-            visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+            visible: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
           }}
           className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
         >
           {services.map((s) => (
-            <motion.div
-              key={s.n}
-              variants={cardVariants}
-              whileHover={{ y: -8 }}
-              transition={{ type: "spring", stiffness: 240, damping: 20 }}
-              className="glass group relative h-full overflow-hidden rounded-3xl p-7"
-            >
-              <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/5 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
-              <div className="flex items-center justify-between">
-                <span className="font-display text-2xl font-bold tracking-tight text-muted-foreground">
-                  {s.n}
-                </span>
-                <span className="h-1.5 w-1.5 rounded-full bg-foreground/60" />
-              </div>
-              <h3 className="mt-12 font-display text-[1.6rem] font-bold leading-[1.1] tracking-[-0.02em]">
-                {s.t}
-              </h3>
-              <p className="mt-3 text-sm leading-[1.65] tracking-[-0.005em] text-muted-foreground">
-                {s.d}
-              </p>
-            </motion.div>
+            <ServiceCard key={s.n} s={s} />
           ))}
         </motion.div>
       </div>
