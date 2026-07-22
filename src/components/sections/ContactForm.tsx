@@ -38,7 +38,7 @@ export function ContactForm() {
       form.message,
     ];
     if (method === "whatsapp") {
-      const text = [`Hi Granth, ${subject.toLowerCase()}.`, "", ...lines].join("\n");
+      const text = [subject, "", ...lines].join("\n");
       const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
       window.open(url, "_blank", "noopener,noreferrer");
     } else {
