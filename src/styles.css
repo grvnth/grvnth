@@ -56,6 +56,7 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 12%);
   --ring: oklch(0.7 0 0);
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @layer base {
@@ -88,6 +89,7 @@
   }
   h1 { font-weight: 800; letter-spacing: -0.045em; }
   p { line-height: 1.7; }
+  ::selection { background: rgba(255,255,255,0.18); color: #fff; }
 }
 
 @utility glass {
@@ -109,9 +111,8 @@
     0 30px 80px -30px rgba(0,0,0,0.8);
 }
 
-@utility text-balance {
-  text-wrap: balance;
-}
+@utility text-balance { text-wrap: balance; }
+@utility text-pretty { text-wrap: pretty; }
 
 @utility grain {
   position: relative;
@@ -126,6 +127,34 @@
   }
 }
 
+/* Premium hover gradient border — draws a soft luminous ring on the card's edge */
+@utility card-glow {
+  position: relative;
+  isolation: isolate;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,0.0), rgba(255,255,255,0.55), rgba(255,255,255,0.0) 40%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.6s var(--ease-premium);
+    pointer-events: none;
+  }
+  &:hover::before { opacity: 1; animation: spin-slow 6s linear infinite; }
+}
+
+/* Marquee gradient mask so the strip fades at the edges */
+@utility marquee-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+/* Keyframes */
 @keyframes float-slow {
   0%, 100% { transform: translate3d(0,0,0) scale(1); }
   50% { transform: translate3d(20px,-30px,0) scale(1.05); }
@@ -138,7 +167,6 @@
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
-
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -151,10 +179,23 @@
   0% { transform: scale(0.9); opacity: 0.6; }
   100% { transform: scale(1.8); opacity: 0; }
 }
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes aurora {
+  0%, 100% { transform: translate3d(0,0,0) scale(1); opacity: 0.55; }
+  50% { transform: translate3d(4%, -3%, 0) scale(1.15); opacity: 0.85; }
+}
+@keyframes drift {
+  0%, 100% { transform: translate3d(0,0,0); }
+  50% { transform: translate3d(-3%, 4%, 0); }
+}
 
 .animate-float-slow { animation: float-slow 14s ease-in-out infinite; }
 .animate-float-slow-2 { animation: float-slow-2 18s ease-in-out infinite; }
 .animate-marquee { animation: marquee 35s linear infinite; }
+.animate-aurora { animation: aurora 16s ease-in-out infinite; }
+.animate-drift { animation: drift 22s ease-in-out infinite; }
 .animate-text-shine {
   background: linear-gradient(90deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.4) 100%);
   background-size: 200% auto;
@@ -175,6 +216,10 @@
   font-feature-settings: "ss01", "ss02";
 }
 
-@utility text-pretty {
-  text-wrap: pretty;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
