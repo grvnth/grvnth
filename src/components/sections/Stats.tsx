@@ -2,11 +2,11 @@ import { motion, useInView, useMotionValue, useSpring, useTransform } from "fram
 import { useEffect, useRef, useState } from "react";
 import { Reveal } from "../Reveal";
 
-const stats: { v: number | string; suffix?: string; l: string }[] = [
+const stats: { v: number; suffix?: string; l: string }[] = [
   { v: 100, suffix: "+", l: "Projects Completed" },
   { v: 50, suffix: "+", l: "Happy Clients" },
   { v: 2, suffix: "+", l: "Years of Experience" },
-  { v: "24/7", l: "Communication & Support" },
+  { v: 24, suffix: "/7", l: "Communication & Support" },
 ];
 
 function CountUp({ to }: { to: number }) {
