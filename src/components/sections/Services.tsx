@@ -80,12 +80,12 @@ function ServiceCard({ s }: { s: (typeof services)[number] }) {
       <p className="relative mt-3 text-sm leading-[1.65] tracking-[-0.005em] text-muted-foreground">
         {s.d}
       </p>
-      <div className="relative mt-6 flex items-center gap-2 text-[0.68rem] uppercase tracking-[0.3em] text-muted-foreground/70 transition-colors duration-500 group-hover:text-foreground">
-        <span>Explore</span>
-        <svg className="h-3 w-3 transition-transform duration-500 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M5 12h14M13 5l7 7-7 7" />
-        </svg>
-      </div>
+    </motion.div>
+  );
+}
+
+// removed trailing tags below
+
     </motion.div>
   );
 }
