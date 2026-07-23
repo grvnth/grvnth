@@ -84,11 +84,6 @@ function ServiceCard({ s }: { s: (typeof services)[number] }) {
   );
 }
 
-// removed trailing tags below
-
-    </motion.div>
-  );
-}
 
 export function Services() {
   const ref = useRef<HTMLDivElement>(null);
