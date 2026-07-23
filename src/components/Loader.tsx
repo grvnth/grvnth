@@ -17,24 +17,6 @@ export function Loader() {
       </div>
 
       <div className="relative flex flex-col items-center gap-8">
-        <div className="relative">
-          <motion.div
-            className="glass-strong flex h-28 w-28 items-center justify-center rounded-3xl"
-            initial={{ scale: 0.7, opacity: 0, rotate: -20 }}
-            animate={{ scale: 1, opacity: 1, rotate: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <motion.span
-              className="font-display text-5xl tracking-tight text-foreground"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-            >
-              G
-            </motion.span>
-          </motion.div>
-        </div>
-
         <motion.div
           className="overflow-hidden"
           initial={{ opacity: 0 }}
