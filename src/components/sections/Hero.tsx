@@ -56,6 +56,7 @@ export function Hero() {
         </Reveal>
 
         <h1 className="font-display text-balance text-5xl leading-[0.95] tracking-tight sm:text-7xl md:text-[7.5rem]">
+          <span className="sr-only">Granth Agrawal — Freelance Graphic Designer & Video Editor. </span>
           <span className="block overflow-hidden pb-2">
             {line1.map((w, i) => (
               <motion.span

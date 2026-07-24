@@ -96,10 +96,12 @@ export function ContactForm() {
           >
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
-                <label className="mb-2 block text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">
+                <label htmlFor="cf-name" className="mb-2 block text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">
                   Name
                 </label>
                 <input
+                  id="cf-name"
+                  name="name"
                   className={field}
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -109,10 +111,12 @@ export function ContactForm() {
                 {errors.name && <p className="mt-1 text-xs text-red-400">{errors.name}</p>}
               </div>
               <div>
-                <label className="mb-2 block text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">
+                <label htmlFor="cf-email" className="mb-2 block text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">
                   Email
                 </label>
                 <input
+                  id="cf-email"
+                  name="email"
                   className={field}
                   type="email"
                   value={form.email}
@@ -147,10 +151,12 @@ export function ContactForm() {
             </div>
 
             <div>
-              <label className="mb-2 block text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">
+              <label htmlFor="cf-message" className="mb-2 block text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">
                 Message
               </label>
               <textarea
+                id="cf-message"
+                name="message"
                 className={`${field} min-h-32 resize-y`}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
