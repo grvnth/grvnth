@@ -151,10 +151,12 @@ export function ContactForm() {
             </div>
 
             <div>
-              <label className="mb-2 block text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">
+              <label htmlFor="cf-message" className="mb-2 block text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">
                 Message
               </label>
               <textarea
+                id="cf-message"
+                name="message"
                 className={`${field} min-h-32 resize-y`}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
