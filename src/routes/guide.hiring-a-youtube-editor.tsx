@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 const CANONICAL = "https://grvnth.lovable.app/guide/hiring-a-youtube-editor";
-const TITLE = "How to Hire a YouTube Video Editor (and Why It's a Different Job)";
+const TITLE = "How to Hire a YouTube Video Editor";
 const DESCRIPTION =
-  "A practical guide for creators and channel owners: what a specialized YouTube editor actually does, how retention and hook editing drive growth, and how to hire the right one.";
+  "What a specialized YouTube editor does, how retention and hook editing drive channel growth, and how to hire the right one.";
+const OG_IMAGE = "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f9366531-10df-4651-93d6-aa81fc4de01a/id-preview-65a11b99--ea7c0c67-b7a4-40a8-86d3-21e462d14eb6.lovable.app-1781748410661.png";
 
 export const Route = createFileRoute("/guide/hiring-a-youtube-editor")({
   head: () => ({
@@ -14,9 +15,11 @@ export const Route = createFileRoute("/guide/hiring-a-youtube-editor")({
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "article" },
       { property: "og:url", content: CANONICAL },
+      { property: "og:image", content: OG_IMAGE },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [{ rel: "canonical", href: CANONICAL }],
     scripts: [
