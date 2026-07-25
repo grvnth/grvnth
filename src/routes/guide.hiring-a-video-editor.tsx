@@ -4,6 +4,7 @@ const CANONICAL = "https://grvnth.lovable.app/guide/hiring-a-video-editor";
 const TITLE = "Videographer vs Video Editor: How to Hire the Right Talent";
 const DESCRIPTION =
   "A practical guide to the difference between a videographer and a video editor, when you need each, and how specialized post-production drives brand growth.";
+const OG_IMAGE = "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f9366531-10df-4651-93d6-aa81fc4de01a/id-preview-65a11b99--ea7c0c67-b7a4-40a8-86d3-21e462d14eb6.lovable.app-1781748410661.png";
 
 export const Route = createFileRoute("/guide/hiring-a-video-editor")({
   head: () => ({
@@ -14,9 +15,11 @@ export const Route = createFileRoute("/guide/hiring-a-video-editor")({
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "article" },
       { property: "og:url", content: CANONICAL },
+      { property: "og:image", content: OG_IMAGE },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [{ rel: "canonical", href: CANONICAL }],
     scripts: [
