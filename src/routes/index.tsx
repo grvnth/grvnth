@@ -34,10 +34,10 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:url", content: "https://grvnth.lovable.app/" },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f9366531-10df-4651-93d6-aa81fc4de01a/id-preview-65a11b99--ea7c0c67-b7a4-40a8-86d3-21e462d14eb6.lovable.app-1781748410661.png" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1c984baf-d1f9-480a-a2db-48e4309058a2" },
       { name: "twitter:title", content: "Granth Agrawal | Freelance Graphic Designer & Video Editor" },
       { name: "twitter:description", content: "Creating premium graphic design, motion graphics, and video editing that help brands, creators, and startups grow through impactful visual storytelling." },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f9366531-10df-4651-93d6-aa81fc4de01a/id-preview-65a11b99--ea7c0c67-b7a4-40a8-86d3-21e462d14eb6.lovable.app-1781748410661.png" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1c984baf-d1f9-480a-a2db-48e4309058a2" },
     ],
     links: [{ rel: "canonical", href: "https://grvnth.lovable.app/" }],
     scripts: [
