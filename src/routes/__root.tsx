@@ -88,8 +88,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:title", content: "Granth Agrawal | Freelance Graphic Designer & Video Editor" },
       { property: "og:description", content: "Creating premium graphic design, motion graphics, and video editing that help brands, creators, and startups grow through impactful visual storytelling." },
       { name: "twitter:description", content: "Creating premium graphic design, motion graphics, and video editing that help brands, creators, and startups grow through impactful visual storytelling." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1c984baf-d1f9-480a-a2db-48e4309058a2" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1c984baf-d1f9-480a-a2db-48e4309058a2" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/vrMdmViP0jhReeJiiJCcidFjdEq1/social-images/social-1785040574512-1000783763.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/vrMdmViP0jhReeJiiJCcidFjdEq1/social-images/social-1785040574512-1000783763.webp" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -99,6 +99,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap",
       },
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
     ],
   }),
   shellComponent: RootShell,

@@ -34,10 +34,10 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:url", content: "https://grvnth.lovable.app/" },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1c984baf-d1f9-480a-a2db-48e4309058a2" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/vrMdmViP0jhReeJiiJCcidFjdEq1/social-images/social-1785040574512-1000783763.webp" },
       { name: "twitter:title", content: "Granth Agrawal | Freelance Graphic Designer & Video Editor" },
       { name: "twitter:description", content: "Creating premium graphic design, motion graphics, and video editing that help brands, creators, and startups grow through impactful visual storytelling." },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1c984baf-d1f9-480a-a2db-48e4309058a2" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/vrMdmViP0jhReeJiiJCcidFjdEq1/social-images/social-1785040574512-1000783763.webp" },
     ],
     links: [{ rel: "canonical", href: "https://grvnth.lovable.app/" }],
     scripts: [
