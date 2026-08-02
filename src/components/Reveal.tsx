@@ -5,12 +5,11 @@ import { useRef } from "react";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const variants: Variants = {
-  hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.9, ease: EASE },
+    transition: { duration: 0.7, ease: EASE },
   },
 };
 
@@ -30,14 +29,13 @@ export function Reveal({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, margin: "-60px" }}
       variants={{
-        hidden: { opacity: 0, y, filter: "blur(6px)" },
+        hidden: { opacity: 0, y },
         visible: {
           opacity: 1,
           y: 0,
-          filter: "blur(0px)",
-          transition: { duration: 0.9, ease: EASE, delay },
+          transition: { duration: 0.7, ease: EASE, delay },
         },
       }}
     >
@@ -47,12 +45,11 @@ export function Reveal({
 }
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 28, filter: "blur(6px)" },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.9, ease: EASE },
+    transition: { duration: 0.7, ease: EASE },
   },
 };
 
@@ -72,7 +69,7 @@ export function StaggerGroup({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, margin: "-60px" }}
       variants={{
         hidden: {},
         visible: { transition: { staggerChildren: stagger, delayChildren: delay } },

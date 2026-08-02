@@ -72,9 +72,9 @@ export function Testimonials() {
                   <motion.div
                     key={i}
                     custom={dir}
-                    initial={{ opacity: 0, y: 30 * dir, filter: "blur(8px)" }}
-                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                    exit={{ opacity: 0, y: -30 * dir, filter: "blur(8px)" }}
+                    initial={{ opacity: 0, y: 24 * dir }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -24 * dir }}
                     transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                     className="text-center"
                   >
