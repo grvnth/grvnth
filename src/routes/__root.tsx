@@ -15,11 +15,38 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 function NotFoundComponent() {
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background px-5">
-      {/* ambient glow */}
-      <div
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[60vh] w-[60vh] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.07] blur-3xl"
-        style={{ background: "radial-gradient(circle, #ffffff, transparent 70%)" }}
-      />
+      {/* ambient background — matches the site aurora orbs + grid */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.07),transparent_60%)]" />
+        <div
+          className="orb absolute -top-40 -left-40 h-[620px] w-[620px] animate-aurora"
+          style={{
+            background:
+              "radial-gradient(closest-side, rgba(255,255,255,0.10), rgba(255,255,255,0) 70%)",
+          }}
+        />
+        <div
+          className="orb absolute top-1/3 -right-40 h-[520px] w-[520px] animate-drift"
+          style={{
+            background:
+              "radial-gradient(closest-side, rgba(255,255,255,0.09), rgba(255,255,255,0) 70%)",
+            animationDelay: "-6s",
+          }}
+        />
+        <div
+          className="absolute inset-0 opacity-[0.035]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+            backgroundSize: "80px 80px",
+            maskImage:
+              "radial-gradient(ellipse at center, black 40%, transparent 75%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse at center, black 40%, transparent 75%)",
+          }}
+        />
+      </div>
+
       <div className="relative z-10 mx-auto max-w-xl text-center">
         <p className="mb-6 text-[0.65rem] uppercase tracking-[0.4em] text-muted-foreground">
           Error 404
@@ -34,13 +61,11 @@ function NotFoundComponent() {
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
           <a
-            href="https://drive.google.com/drive/folders/1GrIJ8rAO8mg1UYMEUVJkP1e-0dSX9ady"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/"
             className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-foreground px-7 py-4 text-sm font-semibold text-background sm:w-auto"
           >
             <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-black/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-            <span className="relative z-10">View My Designs</span>
+            <span className="relative z-10">Go to Main Site</span>
             <svg className="relative z-10 h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M13 5l7 7-7 7" />
             </svg>
