@@ -20,13 +20,22 @@ export function Hero() {
   const smy = useSpring(my, { stiffness: 60, damping: 20 });
 
   useEffect(() => {
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+    let frame = 0;
     const onMove = (e: MouseEvent) => {
-      const { innerWidth: w, innerHeight: h } = window;
-      mx.set((e.clientX / w - 0.5) * 40);
-      my.set((e.clientY / h - 0.5) * 40);
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        const { innerWidth: w, innerHeight: h } = window;
+        mx.set((e.clientX / w - 0.5) * 40);
+        my.set((e.clientY / h - 0.5) * 40);
+      });
     };
-    window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
+    window.addEventListener("mousemove", onMove, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, [mx, my]);
 
   const negSmx = useTransform(smx, (v) => -v);
