@@ -14,20 +14,44 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background px-5">
+      {/* ambient glow */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[60vh] w-[60vh] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.07] blur-3xl"
+        style={{ background: "radial-gradient(circle, #ffffff, transparent 70%)" }}
+      />
+      <div className="relative z-10 mx-auto max-w-xl text-center">
+        <p className="mb-6 text-[0.65rem] uppercase tracking-[0.4em] text-muted-foreground">
+          Error 404
         </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+        <h1 className="font-display text-balance text-6xl font-bold leading-[0.95] tracking-tight text-foreground sm:text-8xl">
+          Lost in
+          <span className="italic text-muted-foreground"> space.</span>
+        </h1>
+        <p className="mx-auto mt-6 max-w-sm text-balance text-sm leading-[1.7] text-muted-foreground">
+          The page you're looking for doesn't exist or has drifted off. Let's
+          get you back to something useful.
+        </p>
+        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+          <a
+            href="https://drive.google.com/drive/folders/1GrIJ8rAO8mg1UYMEUVJkP1e-0dSX9ady"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-foreground px-7 py-4 text-sm font-semibold text-background sm:w-auto"
           >
-            Go home
-          </Link>
+            <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-black/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+            <span className="relative z-10">View My Designs</span>
+            <svg className="relative z-10 h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a
+            href="/#contact"
+            className="glass-strong group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full px-7 py-4 text-sm font-semibold text-foreground sm:w-auto"
+          >
+            <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+            <span className="relative">Contact Me</span>
+          </a>
         </div>
       </div>
     </div>
