@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as GuideHiringAVideoEditorRouteImport } from './routes/guide.hiring-a-video-editor'
 import { Route as GuideHiringAYoutubeEditorRouteImport } from './routes/guide.hiring-a-youtube-editor'
 
 const IndexRoute = IndexRouteImport.update({
@@ -24,11 +23,6 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GuideHiringAVideoEditorRoute = GuideHiringAVideoEditorRouteImport.update({
-  id: '/guide/hiring-a-video-editor',
-  path: '/guide/hiring-a-video-editor',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const GuideHiringAYoutubeEditorRoute =
   GuideHiringAYoutubeEditorRouteImport.update({
     id: '/guide/hiring-a-youtube-editor',
@@ -39,47 +33,30 @@ const GuideHiringAYoutubeEditorRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/guide/hiring-a-video-editor': typeof GuideHiringAVideoEditorRoute
   '/guide/hiring-a-youtube-editor': typeof GuideHiringAYoutubeEditorRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/guide/hiring-a-video-editor': typeof GuideHiringAVideoEditorRoute
   '/guide/hiring-a-youtube-editor': typeof GuideHiringAYoutubeEditorRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/guide/hiring-a-video-editor': typeof GuideHiringAVideoEditorRoute
   '/guide/hiring-a-youtube-editor': typeof GuideHiringAYoutubeEditorRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/sitemap.xml'
-    | '/guide/hiring-a-video-editor'
-    | '/guide/hiring-a-youtube-editor'
+  fullPaths: '/' | '/sitemap.xml' | '/guide/hiring-a-youtube-editor'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/sitemap.xml'
-    | '/guide/hiring-a-video-editor'
-    | '/guide/hiring-a-youtube-editor'
-  id:
-    | '__root__'
-    | '/'
-    | '/sitemap.xml'
-    | '/guide/hiring-a-video-editor'
-    | '/guide/hiring-a-youtube-editor'
+  to: '/' | '/sitemap.xml' | '/guide/hiring-a-youtube-editor'
+  id: '__root__' | '/' | '/sitemap.xml' | '/guide/hiring-a-youtube-editor'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  GuideHiringAVideoEditorRoute: typeof GuideHiringAVideoEditorRoute
   GuideHiringAYoutubeEditorRoute: typeof GuideHiringAYoutubeEditorRoute
 }
 
@@ -99,13 +76,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/guide/hiring-a-video-editor': {
-      id: '/guide/hiring-a-video-editor'
-      path: '/guide/hiring-a-video-editor'
-      fullPath: '/guide/hiring-a-video-editor'
-      preLoaderRoute: typeof GuideHiringAVideoEditorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/guide/hiring-a-youtube-editor': {
       id: '/guide/hiring-a-youtube-editor'
       path: '/guide/hiring-a-youtube-editor'
@@ -119,7 +89,6 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  GuideHiringAVideoEditorRoute: GuideHiringAVideoEditorRoute,
   GuideHiringAYoutubeEditorRoute: GuideHiringAYoutubeEditorRoute,
 }
 export const routeTree = rootRouteImport
