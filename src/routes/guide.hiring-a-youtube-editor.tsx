@@ -233,10 +233,11 @@ function YouTubeHiringGuide() {
               Start a project
             </Link>
             <Link
-              to="/guide/hiring-a-video-editor"
+              to="/"
+              hash="services"
               className="inline-flex items-center rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-white/5"
             >
-              Videographer vs editor guide
+              See services
             </Link>
           </div>
         </section>
