@@ -7,6 +7,4 @@ Granth Agrawal is an independent designer based in India offering graphic design
 ## Pages
 
 - [Home](/): Overview of services, stats, testimonials, and contact form for graphic design and video editing work.
-- [Guide: Videographer vs Video Editor](/guide/hiring-a-video-editor): How to decide between a videographer, a hybrid, and a specialist video editor.
-
 - [Guide: Hiring a YouTube Video Editor](/guide/hiring-a-youtube-editor): What a specialist YouTube editor does, why retention drives distribution, and how to hire one.
