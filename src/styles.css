@@ -94,7 +94,8 @@
 
 @utility glass {
   background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-  backdrop-filter: blur(24px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
   border: 1px solid rgba(255,255,255,0.10);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.12),
@@ -103,7 +104,8 @@
 
 @utility glass-strong {
   background: linear-gradient(135deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04));
-  backdrop-filter: blur(40px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
   border: 1px solid rgba(255,255,255,0.18);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.20),
@@ -222,4 +224,32 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
+}
+
+/* Orbs are composited layers; keep them on the GPU and out of layout */
+.orb {
+  border-radius: 9999px;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  contain: strict;
+}
+
+/* Long pages: let the browser skip offscreen section painting */
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
+}
+
+/* Mobile / touch devices: drop the most expensive GPU work */
+@media (max-width: 900px), (pointer: coarse) {
+  .glass, .glass-strong {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03)), rgba(12,12,12,0.82);
+  }
+  .grain-layer { display: none; }
+  .animate-aurora, .animate-drift,
+  .animate-float-slow, .animate-float-slow-2 { animation: none; }
+  .card-glow::before { display: none; }
+  html { scroll-behavior: auto; }
 }
