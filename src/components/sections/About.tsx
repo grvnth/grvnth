@@ -49,7 +49,7 @@ export function About() {
                   loading="lazy"
                   width={1000}
                   height={1000}
-                  className="aspect-square w-full object-cover grayscale transition-all duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
+                  className="aspect-square w-full object-cover transition-all duration-700 group-hover:scale-[1.03]"
                 />
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 to-transparent p-5">
                   <p className="font-mono text-[0.6rem] uppercase tracking-[0.35em] text-muted-foreground">
