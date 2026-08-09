@@ -1,6 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import portrait from "@/assets/granth-portrait.jpg.asset.json";
 import { Reveal, StaggerGroup, StaggerItem } from "../Reveal";
+
 
 export function About() {
   const ref = useRef<HTMLDivElement>(null);
