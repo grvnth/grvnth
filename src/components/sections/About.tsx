@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import portrait from "@/assets/granth-portrait.jpg.asset.json";
-import { Reveal, StaggerGroup, StaggerItem } from "../Reveal";
+import { Parallax, Reveal, StaggerGroup, StaggerItem } from "../Reveal";
 
 
 export function About() {
@@ -42,7 +42,7 @@ export function About() {
         <motion.div style={{ y: yBody }} className="mt-14 grid gap-8 md:grid-cols-2">
           <StaggerGroup stagger={0.12} delay={0.1}>
             <StaggerItem>
-              <div className="glass group relative mb-8 overflow-hidden rounded-3xl">
+              <Parallax distance={28} className="glass group relative mb-8 overflow-hidden rounded-3xl">
                 <img
                   src={portrait.url}
                   alt="Granth Agrawal, freelance graphic designer and video editor"
@@ -56,7 +56,7 @@ export function About() {
                     Granth Agrawal
                   </p>
                 </div>
-              </div>
+              </Parallax>
               <p className="text-pretty text-lg leading-[1.7] tracking-[-0.005em] text-muted-foreground">
                 Passionate about transforming ideas into visuals and videos that capture
                 attention, tell stories, and leave a lasting impression.

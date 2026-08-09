@@ -8,6 +8,7 @@ import { Loader } from "@/components/Loader";
 import { Marquee } from "@/components/Marquee";
 import { Nav } from "@/components/Nav";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
@@ -85,6 +86,7 @@ function Index() {
     <div className="relative grain min-h-screen overflow-x-hidden bg-background text-foreground">
       <AnimatePresence>{loading && <Loader key="loader" />}</AnimatePresence>
 
+      <SmoothScroll />
       <Background />
       <CursorGlow />
       <ScrollProgress />
