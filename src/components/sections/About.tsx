@@ -40,12 +40,28 @@ export function About() {
         <motion.div style={{ y: yBody }} className="mt-14 grid gap-8 md:grid-cols-2">
           <StaggerGroup stagger={0.12} delay={0.1}>
             <StaggerItem>
+              <div className="glass group relative mb-8 overflow-hidden rounded-3xl">
+                <img
+                  src={portrait.url}
+                  alt="Granth Agrawal, freelance graphic designer and video editor"
+                  loading="lazy"
+                  width={1000}
+                  height={1000}
+                  className="aspect-square w-full object-cover grayscale transition-all duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
+                />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 to-transparent p-5">
+                  <p className="font-mono text-[0.6rem] uppercase tracking-[0.35em] text-muted-foreground">
+                    Granth Agrawal
+                  </p>
+                </div>
+              </div>
               <p className="text-pretty text-lg leading-[1.7] tracking-[-0.005em] text-muted-foreground">
                 Passionate about transforming ideas into visuals and videos that capture
                 attention, tell stories, and leave a lasting impression.
               </p>
             </StaggerItem>
           </StaggerGroup>
+
           <StaggerGroup stagger={0.12} delay={0.2}>
             <div className="space-y-6">
               <StaggerItem>
