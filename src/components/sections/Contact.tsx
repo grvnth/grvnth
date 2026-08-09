@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Reveal } from "../Reveal";
+import { Reveal, TextReveal } from "../Reveal";
 import { ContactForm } from "./ContactForm";
 
 const channels = [
@@ -57,13 +57,14 @@ export function Contact() {
             ⟶ Contact
           </p>
         </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="mt-6 text-center font-display text-5xl leading-[1] tracking-tight sm:text-7xl md:text-8xl">
-            Let's make
-            <br />
-            <span className="italic text-muted-foreground">something great.</span>
-          </h2>
-        </Reveal>
+        <h2 className="mt-6 text-center font-display text-5xl leading-[1.05] tracking-tight sm:text-7xl md:text-8xl">
+          <TextReveal text="Let's make" delay={0.05} className="block" />
+          <TextReveal
+            text="something great."
+            delay={0.2}
+            className="block italic text-muted-foreground"
+          />
+        </h2>
 
         <Reveal delay={0.2}>
           <div className="mt-14">

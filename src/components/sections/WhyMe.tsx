@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Reveal, StaggerGroup, StaggerItem } from "../Reveal";
+import { Reveal, StaggerGroup, StaggerItem, TextReveal } from "../Reveal";
 
 const items = [
   "Modern Visuals",
@@ -19,12 +19,14 @@ export function WhyMe() {
             ⟶ Why Work With Me
           </p>
         </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="mt-6 max-w-3xl font-display text-[2.5rem] font-bold leading-[1.05] tracking-[-0.03em] sm:text-6xl md:text-7xl">
-            A standard you can{" "}
-            <span className="italic font-semibold text-muted-foreground">feel</span>.
-          </h2>
-        </Reveal>
+        <h2 className="mt-6 max-w-3xl font-display text-[2.5rem] font-bold leading-[1.05] tracking-[-0.03em] sm:text-6xl md:text-7xl">
+          <TextReveal text="A standard you can" delay={0.05} />
+          <TextReveal
+            text="feel."
+            delay={0.25}
+            className="italic font-semibold text-muted-foreground"
+          />
+        </h2>
 
         <StaggerGroup
           stagger={0.08}

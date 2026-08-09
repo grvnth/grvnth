@@ -64,7 +64,6 @@
     border-color: var(--color-border);
   }
   html {
-    scroll-behavior: smooth;
     font-size: 16px;
     text-rendering: optimizeLegibility;
   }
@@ -251,5 +250,5 @@ section {
   .animate-aurora, .animate-drift,
   .animate-float-slow, .animate-float-slow-2 { animation: none; }
   .card-glow::before { display: none; }
-  html { scroll-behavior: auto; }
+
 }

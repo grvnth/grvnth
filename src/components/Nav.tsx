@@ -17,6 +17,16 @@ export function Nav() {
   const bg = useTransform(scrollY, [0, 120], [0.5, 1]);
   const opacity = useSpring(bg, { stiffness: 120, damping: 20 });
   const [active, setActive] = useState<string>("");
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    let last = window.scrollY;
+    return scrollY.on("change", (v) => {
+      const goingDown = v > last && v > 220;
+      last = v;
+      setHidden(goingDown);
+    });
+  }, [scrollY]);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -37,8 +47,8 @@ export function Nav() {
   return (
     <motion.header
       initial={{ y: -30, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+      animate={{ y: hidden ? -110 : 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className="fixed left-1/2 top-4 z-50 w-[calc(100%-2rem)] max-w-5xl -translate-x-1/2 sm:top-6"
     >
       <motion.div
