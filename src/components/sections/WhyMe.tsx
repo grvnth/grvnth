@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Parallax, Reveal, StaggerGroup, StaggerItem, TextReveal } from "../Reveal";
+import { Reveal, StaggerGroup, StaggerItem, TextReveal } from "../Reveal";
 
 const items = [
   "Modern Visuals",
