@@ -12,12 +12,15 @@ export function SmoothScroll() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const lenis = new Lenis({
-      duration: 1.15,
-      easing: (t: number) => 1 - Math.pow(1 - t, 4),
-      lerp: 0.1,
+      duration: 1.05,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.085,
       smoothWheel: true,
-      touchMultiplier: 1.6,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.5,
+      syncTouch: false,
     });
+
 
     let raf = 0;
     const loop = (time: number) => {
