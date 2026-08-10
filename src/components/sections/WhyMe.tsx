@@ -37,7 +37,7 @@ export function WhyMe() {
             <StaggerItem key={it}>
               <motion.div
                 whileHover={{ y: -6, transition: { type: "spring", stiffness: 260, damping: 18 } }}
-                className="glass card-glow group flex items-center gap-4 rounded-2xl p-6"
+                className="glass card-glow sheen hover-lift group flex items-center gap-4 rounded-2xl p-6"
               >
                 <div className="glass-strong relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full">
                   <span className="font-display text-sm font-bold">
