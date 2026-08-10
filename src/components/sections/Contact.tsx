@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { Reveal, TextReveal } from "../Reveal";
+import { Reveal, ScaleIn, TextReveal } from "../Reveal";
+
 import { ContactForm } from "./ContactForm";
 import paypalQrAsset from "@/assets/paypal-qr.jpg.asset.json";
 
