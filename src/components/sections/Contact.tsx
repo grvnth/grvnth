@@ -114,6 +114,34 @@ export function Contact() {
             ))}
           </div>
         </Reveal>
+
+        <Reveal delay={0.42}>
+          <div className="mt-8 flex justify-center">
+            <motion.div
+              whileHover={{ y: -3 }}
+              className="glass inline-flex items-center gap-5 rounded-2xl p-4 pr-6"
+            >
+              <div className="glass-strong overflow-hidden rounded-xl bg-white p-1.5">
+                <img
+                  src={paypalQrAsset.url}
+                  alt="PayPal QR code for quick payment"
+                  width={104}
+                  height={104}
+                  className="h-24 w-24 sm:h-28 sm:w-28"
+                />
+              </div>
+              <div>
+                <div className="text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">
+                  Quick Payment
+                </div>
+                <div className="mt-1 text-sm font-medium tracking-tight">PayPal</div>
+                <p className="mt-1 max-w-[16rem] text-xs leading-relaxed text-muted-foreground/80">
+                  Scan to complete payment securely. No account details shared.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
