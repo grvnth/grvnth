@@ -116,29 +116,30 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.42}>
-          <div className="mt-8 flex justify-center">
+          <div className="mt-10 flex justify-center">
             <motion.div
-              whileHover={{ y: -3 }}
-              className="glass inline-flex items-center gap-5 rounded-2xl p-4 pr-6"
+              whileHover={{ y: -4 }}
+              className="glass w-full max-w-sm rounded-3xl p-6 text-center sm:max-w-md sm:p-8"
             >
-              <div className="glass-strong overflow-hidden rounded-xl bg-white p-1.5">
+              <div className="text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">
+                Quick Payment
+              </div>
+              <div className="mt-2 font-display text-2xl tracking-tight">PayPal</div>
+              <p className="mx-auto mt-2 max-w-xs text-xs leading-relaxed text-muted-foreground/80">
+                Scan this code with your phone camera to pay instantly. No account details shared.
+              </p>
+              <div className="mt-5 inline-block rounded-2xl bg-white p-3 shadow-2xl shadow-black/20">
                 <img
                   src={paypalQrAsset.url}
-                  alt="PayPal QR code for quick payment"
-                  width={104}
-                  height={104}
-                  className="h-24 w-24 sm:h-28 sm:w-28"
+                  alt="PayPal QR code — scan to pay Granth Agrawal"
+                  width={240}
+                  height={240}
+                  className="h-48 w-48 sm:h-60 sm:w-60"
                 />
               </div>
-              <div>
-                <div className="text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">
-                  Quick Payment
-                </div>
-                <div className="mt-1 text-sm font-medium tracking-tight">PayPal</div>
-                <p className="mt-1 max-w-[16rem] text-xs leading-relaxed text-muted-foreground/80">
-                  Scan to complete payment securely. No account details shared.
-                </p>
-              </div>
+              <p className="mt-4 text-[0.6rem] uppercase tracking-[0.25em] text-muted-foreground/60">
+                Scan on phone or desktop screen
+              </p>
             </motion.div>
           </div>
         </Reveal>
