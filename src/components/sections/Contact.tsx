@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { Reveal, TextReveal } from "../Reveal";
+import { Reveal, ScaleIn, TextReveal } from "../Reveal";
+
 import { ContactForm } from "./ContactForm";
 import paypalQrAsset from "@/assets/paypal-qr.jpg.asset.json";
 
@@ -82,16 +82,15 @@ export function Contact() {
         <Reveal delay={0.35}>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
             {channels.map((c) => (
-              <motion.a
+              <a
                 key={c.name}
                 href={c.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ y: -3 }}
-                className="glass group flex items-center justify-between rounded-2xl p-5 transition-colors hover:bg-white/[0.06]"
+                className="glass sheen hover-lift group flex items-center justify-between rounded-2xl p-5 hover:bg-white/[0.06]"
               >
                 <div className="flex items-center gap-4">
-                  <div className="glass-strong flex h-11 w-11 items-center justify-center rounded-xl">
+                  <div className="glass-strong flex h-11 w-11 items-center justify-center rounded-xl transition-transform duration-500 group-hover:scale-105">
                     {c.icon}
                   </div>
                   <div>
@@ -102,7 +101,7 @@ export function Contact() {
                   </div>
                 </div>
                 <svg
-                  className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-foreground"
+                  className="h-4 w-4 text-muted-foreground transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-0.5 group-hover:text-foreground"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -110,39 +109,41 @@ export function Contact() {
                 >
                   <path d="M7 17L17 7M9 7h8v8" />
                 </svg>
-              </motion.a>
+              </a>
             ))}
           </div>
         </Reveal>
 
-        <Reveal delay={0.42}>
+        <ScaleIn delay={0.1}>
           <div className="mt-10 flex justify-center">
-            <motion.div
-              whileHover={{ y: -4 }}
-              className="glass w-full max-w-sm rounded-3xl p-6 text-center sm:max-w-md sm:p-8"
-            >
-              <div className="text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">
+            <div className="glass sheen hover-lift w-full max-w-sm rounded-3xl p-6 text-center sm:max-w-md sm:p-8">
+              <div className="text-[0.6rem] font-medium uppercase tracking-[0.35em] text-muted-foreground">
                 Quick Payment
               </div>
-              <div className="mt-2 font-display text-2xl tracking-tight">PayPal</div>
-              <p className="mx-auto mt-2 max-w-xs text-xs leading-relaxed text-muted-foreground/80">
+              <div className="mt-3 font-sans text-[1.75rem] font-semibold leading-none tracking-[-0.045em]">
+                Pay<span className="text-muted-foreground">Pal</span>
+              </div>
+              <p className="mx-auto mt-3 max-w-xs text-[0.8rem] font-light leading-relaxed tracking-[-0.01em] text-muted-foreground/80">
                 Scan this code with your phone camera to pay instantly. No account details shared.
               </p>
-              <div className="mt-5 inline-block rounded-2xl bg-white p-3 shadow-2xl shadow-black/20">
+              <div className="mt-6 inline-block rounded-2xl bg-white p-3 shadow-2xl shadow-black/20 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.02]">
                 <img
                   src={paypalQrAsset.url}
                   alt="PayPal QR code — scan to pay Granth Agrawal"
                   width={240}
                   height={240}
+                  loading="lazy"
+                  decoding="async"
                   className="h-48 w-48 sm:h-60 sm:w-60"
                 />
               </div>
-              <p className="mt-4 text-[0.6rem] uppercase tracking-[0.25em] text-muted-foreground/60">
+              <p className="mt-5 text-[0.58rem] font-medium uppercase tracking-[0.3em] text-muted-foreground/60">
                 Scan on phone or desktop screen
               </p>
-            </motion.div>
+            </div>
           </div>
-        </Reveal>
+        </ScaleIn>
+
       </div>
     </section>
   );

@@ -58,7 +58,7 @@ function ServiceCard({ s }: { s: (typeof services)[number] }) {
       onMouseMove={onMove}
       onMouseLeave={reset}
       style={{ rotateX: srx, rotateY: sry, transformPerspective: 900 }}
-      className="glass card-glow group relative h-full overflow-hidden rounded-3xl p-7 [transform-style:preserve-3d]"
+      className="glass card-glow sheen group relative h-full overflow-hidden rounded-3xl p-7 [transform-style:preserve-3d]"
     >
       <motion.div
         style={{ background: bg }}
