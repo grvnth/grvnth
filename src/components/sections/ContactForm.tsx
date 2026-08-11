@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const budgets = ["< ₹10k", "₹10k – ₹50k", "₹50k – ₹1L", "₹1L+", "Let's discuss"];
 
-const RECIPIENT = "grvnth.design@gmail.com";
+const RECIPIENT = "hello@grvnth.cc.cd";
 const WHATSAPP = "919549946123";
 
 type Method = "whatsapp" | "email";

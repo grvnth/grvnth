@@ -23,10 +23,10 @@ export function Footer() {
             LinkedIn
           </a>
           <a
-            href="mailto:grvnth.design@gmail.com"
+            href="mailto:hello@grvnth.cc.cd"
             className="transition-colors hover:text-foreground"
           >
-            grvnth.design@gmail.com
+            hello@grvnth.cc.cd
           </a>
         </div>
         <div className="text-[0.7rem] uppercase tracking-[0.25em] text-muted-foreground">
