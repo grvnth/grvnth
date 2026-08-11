@@ -50,7 +50,7 @@ export const Route = createFileRoute("/")({
           name: "Granth Agrawal",
           url: "https://grvnth.lovable.app/",
           jobTitle: "Freelance Graphic Designer & Video Editor",
-          email: "mailto:grvnth.design@gmail.com",
+          email: "mailto:hello@grvnth.cc.cd",
           sameAs: [
             "https://instagram.com/_grvnth_",
             "https://linkedin.com/in/granth-agrawal-8926a039a",
