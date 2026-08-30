@@ -69,9 +69,9 @@ export function About() {
             <div className="space-y-6">
               <StaggerItem>
                 <p className="text-pretty leading-[1.75] tracking-[-0.005em] text-muted-foreground">
-                  As a Graphic Designer and Video Editor, I create engaging content that
-                  blends creativity, strategy, and storytelling to help brands, businesses,
-                  and creators stand out.
+                  With 100+ completed projects across branding, social media design,
+                  motion graphics, marketing creatives, and video editing, I blend
+                  creativity, strategy, and storytelling to help brands stand out.
                 </p>
               </StaggerItem>
               <StaggerItem>
