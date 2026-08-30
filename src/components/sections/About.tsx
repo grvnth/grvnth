@@ -58,8 +58,9 @@ export function About() {
                 </div>
               </Parallax>
               <p className="text-pretty text-lg leading-[1.7] tracking-[-0.005em] text-muted-foreground">
-                Passionate about transforming ideas into visuals and videos that capture
-                attention, tell stories, and leave a lasting impression.
+                Graphic Designer &amp; Video Editor with 2+ years of experience creating
+                impactful visual content for brands, businesses, startups, and creators —
+                based in North Lakhimpur, Assam, India.
               </p>
             </StaggerItem>
           </StaggerGroup>
