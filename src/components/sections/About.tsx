@@ -58,8 +58,9 @@ export function About() {
                 </div>
               </Parallax>
               <p className="text-pretty text-lg leading-[1.7] tracking-[-0.005em] text-muted-foreground">
-                Passionate about transforming ideas into visuals and videos that capture
-                attention, tell stories, and leave a lasting impression.
+                Graphic Designer &amp; Video Editor with 2+ years of experience creating
+                impactful visual content for brands, businesses, startups, and creators —
+                based in North Lakhimpur, Assam, India.
               </p>
             </StaggerItem>
           </StaggerGroup>
@@ -68,9 +69,9 @@ export function About() {
             <div className="space-y-6">
               <StaggerItem>
                 <p className="text-pretty leading-[1.75] tracking-[-0.005em] text-muted-foreground">
-                  As a Graphic Designer and Video Editor, I create engaging content that
-                  blends creativity, strategy, and storytelling to help brands, businesses,
-                  and creators stand out.
+                  With 100+ completed projects across branding, social media design,
+                  motion graphics, marketing creatives, and video editing, I blend
+                  creativity, strategy, and storytelling to help brands stand out.
                 </p>
               </StaggerItem>
               <StaggerItem>

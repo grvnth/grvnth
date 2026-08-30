@@ -11,6 +11,7 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
+import { Experience } from "@/components/sections/Experience";
 import { Footer } from "@/components/sections/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
@@ -99,6 +100,7 @@ function Index() {
         <Services />
         <Stats />
         <WhyMe />
+        <Experience />
         <Testimonials />
         <Contact />
       </main>
