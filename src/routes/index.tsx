@@ -100,6 +100,7 @@ function Index() {
         <Services />
         <Stats />
         <WhyMe />
+        <Experience />
         <Testimonials />
         <Contact />
       </main>
