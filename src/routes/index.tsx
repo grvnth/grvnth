@@ -15,6 +15,7 @@ import { Experience } from "@/components/sections/Experience";
 import { Footer } from "@/components/sections/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
+import { Showcase } from "@/components/sections/Showcase";
 import { Stats } from "@/components/sections/Stats";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { WhyMe } from "@/components/sections/WhyMe";
@@ -98,6 +99,7 @@ function Index() {
         <Marquee />
         <About />
         <Services />
+        <Showcase />
         <Stats />
         <WhyMe />
         <Experience />

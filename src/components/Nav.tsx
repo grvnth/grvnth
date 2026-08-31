@@ -5,13 +5,14 @@ import { useEffect, useState } from "react";
 const links = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
+  { label: "Work", href: "#work" },
   { label: "Why Me", href: "#why" },
   { label: "Experience", href: "#experience" },
   { label: "Reviews", href: "#reviews" },
   { label: "Contact", href: "#contact" },
 ];
 
-const sectionIds = ["about", "services", "why", "reviews", "contact"];
+const sectionIds = ["about", "services", "work", "why", "experience", "reviews", "contact"];
 
 export function Nav() {
   const { scrollY } = useScroll();
