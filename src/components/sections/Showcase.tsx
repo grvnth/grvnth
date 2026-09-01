@@ -19,6 +19,16 @@ import albumLife from "@/assets/showcase-album-3.png.asset.json";
 import ceramicFlyer from "@/assets/showcase-flyer-1.png.asset.json";
 import hiringFlyer from "@/assets/showcase-flyer-6.png.asset.json";
 import editMark from "@/assets/showcase-logo-3.jpg.asset.json";
+import craftCharm from "@/assets/showcase-logo-4.png.asset.json";
+import dynamicDesigns from "@/assets/showcase-logo-5.png.asset.json";
+import dynamicDesignsMark from "@/assets/showcase-logo-6.png.asset.json";
+import grvnthMark from "@/assets/showcase-logo-8.png.asset.json";
+import adventureSmp from "@/assets/showcase-logo-10.png.asset.json";
+import xsaltyxfupax from "@/assets/showcase-logo-12.png.asset.json";
+import splash from "@/assets/showcase-logo-13.png.asset.json";
+import trendora from "@/assets/showcase-logo-14.png.asset.json";
+import vibeSpot from "@/assets/showcase-logo-15.png.asset.json";
+import vintageVibes from "@/assets/showcase-logo-16.jpg.asset.json";
 import { Reveal } from "../Reveal";
 
 type Slide = { src: string; alt: string };
@@ -66,6 +76,25 @@ const projects: Project[] = [
   },
   {
     number: "03",
+    category: "Logo identity",
+    title: "Identity explorations",
+    description: "A collection of logo directions shaped for distinct voices, from refined wordmarks to bold visual systems.",
+    frame: "square",
+    slides: [
+      { src: craftCharm.url, alt: "Craft and Charm logo identity" },
+      { src: dynamicDesigns.url, alt: "Dynamic Designs logo identity" },
+      { src: dynamicDesignsMark.url, alt: "Dynamic Designs bold logo identity" },
+      { src: grvnthMark.url, alt: "Grvnth logo identity" },
+      { src: adventureSmp.url, alt: "Adventure SMP logo identity" },
+      { src: xsaltyxfupax.url, alt: "Xsaltyxfupax gaming logo identity" },
+      { src: splash.url, alt: "Splash beverage logo identity" },
+      { src: trendora.url, alt: "Trendora logo identity" },
+      { src: vibeSpot.url, alt: "Vibe Spot logo identity" },
+      { src: vintageVibes.url, alt: "Vintage Vibes logo identity" },
+    ],
+  },
+  {
+    number: "04",
     category: "Cover art",
     title: "The Last Warning Signal",
     description: "Dark, cinematic artwork for a release that needed to feel intense before the first note.",
@@ -73,7 +102,7 @@ const projects: Project[] = [
     slides: [{ src: albumWarning.url, alt: "The Last Warning Signal album cover" }],
   },
   {
-    number: "04",
+    number: "05",
     category: "Cover art",
     title: "All My Life",
     description: "Atmospheric cover art balancing scale, contrast, and a quiet sense of movement.",
@@ -81,7 +110,7 @@ const projects: Project[] = [
     slides: [{ src: albumLife.url, alt: "All My Life album cover" }],
   },
   {
-    number: "05",
+    number: "06",
     category: "Print & social",
     title: "Ceramic Junction",
     description: "A direct, high-contrast promotional flyer for a materials and home-finishings brand.",
@@ -89,7 +118,7 @@ const projects: Project[] = [
     slides: [{ src: ceramicFlyer.url, alt: "Ceramic Junction promotional flyer" }],
   },
   {
-    number: "06",
+    number: "07",
     category: "Social graphic",
     title: "Remote Opportunities",
     description: "An information-led recruitment graphic structured for quick reading on social feeds.",
@@ -97,7 +126,7 @@ const projects: Project[] = [
     slides: [{ src: hiringFlyer.url, alt: "Remote opportunities recruitment graphic" }],
   },
   {
-    number: "07",
+    number: "08",
     category: "Video editing",
     title: "Edit with intention",
     description: "A visual mark for the editing side of the studio — simple, clear, and built around motion.",
