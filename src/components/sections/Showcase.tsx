@@ -18,6 +18,11 @@ import albumWarning from "@/assets/showcase-album-2.png.asset.json";
 import albumLife from "@/assets/showcase-album-3.png.asset.json";
 import ceramicFlyer from "@/assets/showcase-flyer-1.png.asset.json";
 import hiringFlyer from "@/assets/showcase-flyer-6.png.asset.json";
+import poster13 from "@/assets/showcase-poster-13.webp.asset.json";
+import poster14 from "@/assets/showcase-poster-14.png.asset.json";
+import poster15 from "@/assets/showcase-poster-15.png.asset.json";
+import poster17 from "@/assets/showcase-poster-17.webp.asset.json";
+import poster18 from "@/assets/showcase-poster-18.webp.asset.json";
 import editMark from "@/assets/showcase-logo-3.jpg.asset.json";
 import craftCharm from "@/assets/showcase-logo-4.png.asset.json";
 import dynamicDesigns from "@/assets/showcase-logo-5.png.asset.json";
@@ -123,19 +128,28 @@ const projects: Project[] = [
   },
   {
     number: "05",
-    category: "Print & social",
-    title: "Ceramic Junction",
-    description: "A direct, high-contrast promotional flyer for a materials and home-finishings brand.",
+    category: "Flyer design",
+    title: "Flyer studies",
+    description: "Two focused flyer directions balancing clear messaging, strong hierarchy, and visual impact.",
     frame: "portrait",
-    slides: [{ src: ceramicFlyer.url, alt: "Ceramic Junction promotional flyer" }],
+    slides: [
+      { src: ceramicFlyer.url, alt: "Ceramic Junction promotional flyer" },
+      { src: hiringFlyer.url, alt: "Remote opportunities recruitment flyer" },
+    ],
   },
   {
     number: "06",
-    category: "Social graphic",
-    title: "Remote Opportunities",
-    description: "An information-led recruitment graphic structured for quick reading on social feeds.",
+    category: "Poster design",
+    title: "Poster collection",
+    description: "Bold poster compositions built to stop the scroll and communicate at a glance.",
     frame: "portrait",
-    slides: [{ src: hiringFlyer.url, alt: "Remote opportunities recruitment graphic" }],
+    slides: [
+      { src: poster13.url, alt: "Make Noise Break Patterns poster" },
+      { src: poster14.url, alt: "Kurta Trends fashion poster" },
+      { src: poster15.url, alt: "Actionsa Your Vote Your Voice poster" },
+      { src: poster17.url, alt: "VettedBuddy brand services poster" },
+      { src: poster18.url, alt: "Partnership secured promotional poster" },
+    ],
   },
 ];
 
@@ -162,7 +176,7 @@ function ShowcaseCard({ project }: { project: Project }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-      className="group"
+      className="group mx-auto w-full max-w-[18.5rem] sm:mx-0 sm:max-w-none"
     >
       <div className={`relative overflow-hidden rounded-2xl border border-border/70 bg-foreground/[0.04] ${project.frame === "square" ? "aspect-square" : "aspect-[4/5]"}`}>
         <AnimatePresence mode="wait" initial={false}>
