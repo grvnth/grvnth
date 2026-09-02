@@ -29,6 +29,14 @@ import splash from "@/assets/showcase-logo-13.png.asset.json";
 import trendora from "@/assets/showcase-logo-14.png.asset.json";
 import vibeSpot from "@/assets/showcase-logo-15.png.asset.json";
 import vintageVibes from "@/assets/showcase-logo-16.jpg.asset.json";
+import logo17 from "@/assets/showcase-logo-17.svg.asset.json";
+import yurane from "@/assets/showcase-logo-18-yurane.jpg.asset.json";
+import noxx from "@/assets/showcase-logo-18-noxx.png.asset.json";
+import grabGadgets from "@/assets/showcase-logo-19-grab-gadgets.png.asset.json";
+import createForMe from "@/assets/showcase-logo-21-create-for-me.png.asset.json";
+import makeTheVibes from "@/assets/showcase-logo-23-make-the-vibes.png.asset.json";
+import leaderLessons from "@/assets/showcase-logo-24-leader-lessons.png.asset.json";
+import gradientMark from "@/assets/showcase-logo-25-gradient-mark.jpg.asset.json";
 import { Reveal } from "../Reveal";
 
 type Slide = { src: string; alt: string };
@@ -91,26 +99,30 @@ const projects: Project[] = [
       { src: trendora.url, alt: "Trendora logo identity" },
       { src: vibeSpot.url, alt: "Vibe Spot logo identity" },
       { src: vintageVibes.url, alt: "Vintage Vibes logo identity" },
+      { src: editMark.url, alt: "Video editing studio logo with film strip, play button, and scissors" },
+      { src: logo17.url, alt: "Logo identity from the latest logo collection" },
+      { src: yurane.url, alt: "Yurane logo with celestial line-art mark" },
+      { src: noxx.url, alt: "Noxx royal emblem logo" },
+      { src: grabGadgets.url, alt: "Grab Gadgets logo with handheld device icon" },
+      { src: createForMe.url, alt: "Create For Me logo with gear mark" },
+      { src: makeTheVibes.url, alt: "Make the Vibes logo identity" },
+      { src: leaderLessons.url, alt: "Leader Lessons logo identity" },
+      { src: gradientMark.url, alt: "Blue and cyan gradient logo mark" },
     ],
   },
   {
     number: "04",
-    category: "Cover art",
-    title: "The Last Warning Signal",
-    description: "Dark, cinematic artwork for a release that needed to feel intense before the first note.",
+    category: "Cover art carousel",
+    title: "Album covers",
+    description: "Two cinematic cover directions built around atmosphere, contrast, and a strong visual hook.",
     frame: "square",
-    slides: [{ src: albumWarning.url, alt: "The Last Warning Signal album cover" }],
+    slides: [
+      { src: albumWarning.url, alt: "The Last Warning Signal album cover" },
+      { src: albumLife.url, alt: "All My Life album cover" },
+    ],
   },
   {
     number: "05",
-    category: "Cover art",
-    title: "All My Life",
-    description: "Atmospheric cover art balancing scale, contrast, and a quiet sense of movement.",
-    frame: "square",
-    slides: [{ src: albumLife.url, alt: "All My Life album cover" }],
-  },
-  {
-    number: "06",
     category: "Print & social",
     title: "Ceramic Junction",
     description: "A direct, high-contrast promotional flyer for a materials and home-finishings brand.",
@@ -118,20 +130,12 @@ const projects: Project[] = [
     slides: [{ src: ceramicFlyer.url, alt: "Ceramic Junction promotional flyer" }],
   },
   {
-    number: "07",
+    number: "06",
     category: "Social graphic",
     title: "Remote Opportunities",
     description: "An information-led recruitment graphic structured for quick reading on social feeds.",
     frame: "portrait",
     slides: [{ src: hiringFlyer.url, alt: "Remote opportunities recruitment graphic" }],
-  },
-  {
-    number: "08",
-    category: "Video editing",
-    title: "Edit with intention",
-    description: "A visual mark for the editing side of the studio — simple, clear, and built around motion.",
-    frame: "square",
-    slides: [{ src: editMark.url, alt: "Video editing studio mark" }],
   },
 ];
 
