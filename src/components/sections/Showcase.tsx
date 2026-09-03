@@ -42,6 +42,9 @@ import createForMe from "@/assets/showcase-logo-21-create-for-me.png.asset.json"
 import makeTheVibes from "@/assets/showcase-logo-23-make-the-vibes.png.asset.json";
 import leaderLessons from "@/assets/showcase-logo-24-leader-lessons.png.asset.json";
 import gradientMark from "@/assets/showcase-logo-25-gradient-mark.jpg.asset.json";
+import reelCover1 from "@/assets/reel-cover-1.jpg";
+import reelCover2 from "@/assets/reel-cover-2.jpg";
+import reelCover3 from "@/assets/reel-cover-3.jpg";
 import { Reveal } from "../Reveal";
 
 type Slide = { src: string; alt: string };
@@ -149,6 +152,18 @@ const projects: Project[] = [
       { src: poster15.url, alt: "Actionsa Your Vote Your Voice poster" },
       { src: poster17.url, alt: "VettedBuddy brand services poster" },
       { src: poster18.url, alt: "Partnership secured promotional poster" },
+    ],
+  },
+  {
+    number: "07",
+    category: "Reel design",
+    title: "Reel covers",
+    description: "Scroll-stopping reel covers built around bold typography, contrast, and a strong hook.",
+    frame: "portrait",
+    slides: [
+      { src: reelCover1, alt: "Would You Hire Me reel cover with cinematic forest scene" },
+      { src: reelCover2, alt: "Stop Chasing Clients, Attract Them Instead reel cover" },
+      { src: reelCover3, alt: "Just One Idea reel cover with glowing lightbulb" },
     ],
   },
 ];
