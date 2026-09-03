@@ -14,7 +14,6 @@ import { Contact } from "@/components/sections/Contact";
 import { Experience } from "@/components/sections/Experience";
 import { Footer } from "@/components/sections/Footer";
 import { Hero } from "@/components/sections/Hero";
-import { ReelCovers } from "@/components/sections/ReelCovers";
 import { Services } from "@/components/sections/Services";
 import { Showcase } from "@/components/sections/Showcase";
 import { Stats } from "@/components/sections/Stats";
@@ -99,7 +98,6 @@ function Index() {
         <Hero />
         <Marquee />
         <About />
-        <ReelCovers />
         <Services />
         <Showcase />
         <Stats />
