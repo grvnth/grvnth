@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import portrait from "@/assets/granth-portrait.jpg.asset.json";
+import portrait from "@/assets/granth-portrait.jpg";
+import { MediaImage } from "@/components/MediaImage";
 import { Parallax, Reveal, StaggerGroup, StaggerItem } from "../Reveal";
 
 
@@ -43,8 +44,8 @@ export function About() {
           <StaggerGroup stagger={0.12} delay={0.1}>
             <StaggerItem>
               <Parallax distance={28} className="glass group relative mb-8 overflow-hidden rounded-3xl">
-                <img
-                  src={portrait.url}
+                <MediaImage
+                  src={portrait}
                   alt="Granth Agrawal, freelance graphic designer and video editor"
                   loading="lazy"
                   width={1000}

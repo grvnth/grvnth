@@ -1,50 +1,51 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import showcase1 from "@/assets/showcase-1.png.asset.json";
-import showcase2 from "@/assets/showcase-2.png.asset.json";
-import showcase3 from "@/assets/showcase-3.png.asset.json";
-import showcase4 from "@/assets/showcase-4.png.asset.json";
-import showcase5 from "@/assets/showcase-5.png.asset.json";
-import showcase6 from "@/assets/showcase-6.png.asset.json";
-import logoIntro from "@/assets/showcase-1-1.png.asset.json";
-import nike from "@/assets/showcase-2-1.png.asset.json";
-import instagram from "@/assets/showcase-3-1.png.asset.json";
-import apple from "@/assets/showcase-4-1.png.asset.json";
-import starbucks from "@/assets/showcase-5-1.png.asset.json";
-import burgerKing from "@/assets/showcase-6-1.png.asset.json";
-import followMore from "@/assets/showcase-7.png.asset.json";
-import albumWarning from "@/assets/showcase-album-2.png.asset.json";
-import albumLife from "@/assets/showcase-album-3.png.asset.json";
-import ceramicFlyer from "@/assets/showcase-flyer-1.png.asset.json";
-import hiringFlyer from "@/assets/showcase-flyer-6.png.asset.json";
-import poster13 from "@/assets/showcase-poster-13.webp.asset.json";
-import poster14 from "@/assets/showcase-poster-14.png.asset.json";
-import poster15 from "@/assets/showcase-poster-15.png.asset.json";
-import poster17 from "@/assets/showcase-poster-17.webp.asset.json";
-import poster18 from "@/assets/showcase-poster-18.webp.asset.json";
-import editMark from "@/assets/showcase-logo-3.jpg.asset.json";
-import craftCharm from "@/assets/showcase-logo-4.png.asset.json";
-import dynamicDesigns from "@/assets/showcase-logo-5.png.asset.json";
-import dynamicDesignsMark from "@/assets/showcase-logo-6.png.asset.json";
-import grvnthMark from "@/assets/showcase-logo-8.png.asset.json";
-import adventureSmp from "@/assets/showcase-logo-10.png.asset.json";
-import xsaltyxfupax from "@/assets/showcase-logo-12.png.asset.json";
-import splash from "@/assets/showcase-logo-13.png.asset.json";
-import trendora from "@/assets/showcase-logo-14.png.asset.json";
-import vibeSpot from "@/assets/showcase-logo-15.png.asset.json";
-import vintageVibes from "@/assets/showcase-logo-16.jpg.asset.json";
-import logo17 from "@/assets/showcase-logo-17.svg.asset.json";
-import yurane from "@/assets/showcase-logo-18-yurane.jpg.asset.json";
-import noxx from "@/assets/showcase-logo-18-noxx.png.asset.json";
-import grabGadgets from "@/assets/showcase-logo-19-grab-gadgets.png.asset.json";
-import createForMe from "@/assets/showcase-logo-21-create-for-me.png.asset.json";
-import makeTheVibes from "@/assets/showcase-logo-23-make-the-vibes.png.asset.json";
-import leaderLessons from "@/assets/showcase-logo-24-leader-lessons.png.asset.json";
-import gradientMark from "@/assets/showcase-logo-25-gradient-mark.jpg.asset.json";
+import showcase1 from "@/assets/showcase-1.png";
+import showcase2 from "@/assets/showcase-2.png";
+import showcase3 from "@/assets/showcase-3.png";
+import showcase4 from "@/assets/showcase-4.png";
+import showcase5 from "@/assets/showcase-5.png";
+import showcase6 from "@/assets/showcase-6.png";
+import logoIntro from "@/assets/showcase-1-1.png";
+import nike from "@/assets/showcase-2-1.png";
+import instagram from "@/assets/showcase-3-1.png";
+import apple from "@/assets/showcase-4-1.png";
+import starbucks from "@/assets/showcase-5-1.png";
+import burgerKing from "@/assets/showcase-6-1.png";
+import followMore from "@/assets/showcase-7.png";
+import albumWarning from "@/assets/showcase-album-2.png";
+import albumLife from "@/assets/showcase-album-3.png";
+import ceramicFlyer from "@/assets/showcase-flyer-1.png";
+import hiringFlyer from "@/assets/showcase-flyer-6.webp";
+import poster13 from "@/assets/showcase-poster-13.webp";
+import poster14 from "@/assets/showcase-poster-14.png";
+import poster15 from "@/assets/showcase-poster-15.png";
+import poster17 from "@/assets/showcase-poster-17.webp";
+import poster18 from "@/assets/showcase-poster-18.webp";
+import editMark from "@/assets/showcase-logo-3.jpg";
+import craftCharm from "@/assets/showcase-logo-4.png";
+import dynamicDesigns from "@/assets/showcase-logo-5.png";
+import dynamicDesignsMark from "@/assets/showcase-logo-6.png";
+import grvnthMark from "@/assets/showcase-logo-8.png";
+import adventureSmp from "@/assets/showcase-logo-10.png";
+import xsaltyxfupax from "@/assets/showcase-logo-12.png";
+import splash from "@/assets/showcase-logo-13.png";
+import trendora from "@/assets/showcase-logo-14.png";
+import vibeSpot from "@/assets/showcase-logo-15.png";
+import vintageVibes from "@/assets/showcase-logo-16.jpg";
+import logo17 from "@/assets/showcase-logo-17.svg";
+import yurane from "@/assets/showcase-logo-18-yurane.jpg";
+import noxx from "@/assets/showcase-logo-18-noxx.png";
+import grabGadgets from "@/assets/showcase-logo-19-grab-gadgets.png";
+import createForMe from "@/assets/showcase-logo-21-create-for-me.png";
+import makeTheVibes from "@/assets/showcase-logo-23-make-the-vibes.png";
+import leaderLessons from "@/assets/showcase-logo-24-leader-lessons.webp";
+import gradientMark from "@/assets/showcase-logo-25-gradient-mark.jpg";
 import reelCover1 from "@/assets/reel-cover-1.jpg";
 import reelCover2 from "@/assets/reel-cover-2.jpg";
 import reelCover3 from "@/assets/reel-cover-3.jpg";
+import { MediaImage } from "@/components/MediaImage";
 import { Reveal } from "../Reveal";
 
 type Slide = { src: string; alt: string };
@@ -195,7 +196,7 @@ function ShowcaseCard({ project }: { project: Project }) {
     >
       <div className={`relative overflow-hidden rounded-2xl border border-border/70 bg-foreground/[0.04] ${project.frame === "square" ? "aspect-square" : "aspect-[4/5]"}`}>
         <AnimatePresence mode="wait" initial={false}>
-          <motion.img
+          <MediaImage
             key={slide.src}
             src={slide.src}
             alt={slide.alt}

@@ -1,7 +1,8 @@
 import { Reveal, ScaleIn, TextReveal } from "../Reveal";
 
 import { ContactForm } from "./ContactForm";
-import paypalQrAsset from "@/assets/paypal-qr.jpg.asset.json";
+import paypalQr from "@/assets/paypal-qr.jpg";
+import { MediaImage } from "@/components/MediaImage";
 
 const channels = [
   {
@@ -127,8 +128,8 @@ export function Contact() {
                 Scan this code with your phone camera to pay instantly. No account details shared.
               </p>
               <div className="mt-6 inline-block rounded-2xl bg-white p-3 shadow-2xl shadow-black/20 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.02]">
-                <img
-                  src={paypalQrAsset.url}
+                <MediaImage
+                  src={paypalQr}
                   alt="PayPal QR code — scan to pay Granth Agrawal"
                   width={240}
                   height={240}
