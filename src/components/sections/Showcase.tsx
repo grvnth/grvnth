@@ -1,50 +1,51 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import showcase1 from "@/assets/showcase-1.png.asset.json";
-import showcase2 from "@/assets/showcase-2.png.asset.json";
-import showcase3 from "@/assets/showcase-3.png.asset.json";
-import showcase4 from "@/assets/showcase-4.png.asset.json";
-import showcase5 from "@/assets/showcase-5.png.asset.json";
-import showcase6 from "@/assets/showcase-6.png.asset.json";
-import logoIntro from "@/assets/showcase-1-1.png.asset.json";
-import nike from "@/assets/showcase-2-1.png.asset.json";
-import instagram from "@/assets/showcase-3-1.png.asset.json";
-import apple from "@/assets/showcase-4-1.png.asset.json";
-import starbucks from "@/assets/showcase-5-1.png.asset.json";
-import burgerKing from "@/assets/showcase-6-1.png.asset.json";
-import followMore from "@/assets/showcase-7.png.asset.json";
-import albumWarning from "@/assets/showcase-album-2.png.asset.json";
-import albumLife from "@/assets/showcase-album-3.png.asset.json";
-import ceramicFlyer from "@/assets/showcase-flyer-1.png.asset.json";
-import hiringFlyer from "@/assets/showcase-flyer-6.png.asset.json";
-import poster13 from "@/assets/showcase-poster-13.webp.asset.json";
-import poster14 from "@/assets/showcase-poster-14.png.asset.json";
-import poster15 from "@/assets/showcase-poster-15.png.asset.json";
-import poster17 from "@/assets/showcase-poster-17.webp.asset.json";
-import poster18 from "@/assets/showcase-poster-18.webp.asset.json";
-import editMark from "@/assets/showcase-logo-3.jpg.asset.json";
-import craftCharm from "@/assets/showcase-logo-4.png.asset.json";
-import dynamicDesigns from "@/assets/showcase-logo-5.png.asset.json";
-import dynamicDesignsMark from "@/assets/showcase-logo-6.png.asset.json";
-import grvnthMark from "@/assets/showcase-logo-8.png.asset.json";
-import adventureSmp from "@/assets/showcase-logo-10.png.asset.json";
-import xsaltyxfupax from "@/assets/showcase-logo-12.png.asset.json";
-import splash from "@/assets/showcase-logo-13.png.asset.json";
-import trendora from "@/assets/showcase-logo-14.png.asset.json";
-import vibeSpot from "@/assets/showcase-logo-15.png.asset.json";
-import vintageVibes from "@/assets/showcase-logo-16.jpg.asset.json";
-import logo17 from "@/assets/showcase-logo-17.svg.asset.json";
-import yurane from "@/assets/showcase-logo-18-yurane.jpg.asset.json";
-import noxx from "@/assets/showcase-logo-18-noxx.png.asset.json";
-import grabGadgets from "@/assets/showcase-logo-19-grab-gadgets.png.asset.json";
-import createForMe from "@/assets/showcase-logo-21-create-for-me.png.asset.json";
-import makeTheVibes from "@/assets/showcase-logo-23-make-the-vibes.png.asset.json";
-import leaderLessons from "@/assets/showcase-logo-24-leader-lessons.png.asset.json";
-import gradientMark from "@/assets/showcase-logo-25-gradient-mark.jpg.asset.json";
+import showcase1 from "@/assets/showcase-1.png";
+import showcase2 from "@/assets/showcase-2.png";
+import showcase3 from "@/assets/showcase-3.png";
+import showcase4 from "@/assets/showcase-4.png";
+import showcase5 from "@/assets/showcase-5.png";
+import showcase6 from "@/assets/showcase-6.png";
+import logoIntro from "@/assets/showcase-1-1.png";
+import nike from "@/assets/showcase-2-1.png";
+import instagram from "@/assets/showcase-3-1.png";
+import apple from "@/assets/showcase-4-1.png";
+import starbucks from "@/assets/showcase-5-1.png";
+import burgerKing from "@/assets/showcase-6-1.png";
+import followMore from "@/assets/showcase-7.png";
+import albumWarning from "@/assets/showcase-album-2.png";
+import albumLife from "@/assets/showcase-album-3.png";
+import ceramicFlyer from "@/assets/showcase-flyer-1.png";
+import hiringFlyer from "@/assets/showcase-flyer-6.webp";
+import poster13 from "@/assets/showcase-poster-13.webp";
+import poster14 from "@/assets/showcase-poster-14.png";
+import poster15 from "@/assets/showcase-poster-15.png";
+import poster17 from "@/assets/showcase-poster-17.webp";
+import poster18 from "@/assets/showcase-poster-18.webp";
+import editMark from "@/assets/showcase-logo-3.jpg";
+import craftCharm from "@/assets/showcase-logo-4.png";
+import dynamicDesigns from "@/assets/showcase-logo-5.png";
+import dynamicDesignsMark from "@/assets/showcase-logo-6.png";
+import grvnthMark from "@/assets/showcase-logo-8.png";
+import adventureSmp from "@/assets/showcase-logo-10.png";
+import xsaltyxfupax from "@/assets/showcase-logo-12.png";
+import splash from "@/assets/showcase-logo-13.png";
+import trendora from "@/assets/showcase-logo-14.png";
+import vibeSpot from "@/assets/showcase-logo-15.png";
+import vintageVibes from "@/assets/showcase-logo-16.jpg";
+import logo17 from "@/assets/showcase-logo-17.svg";
+import yurane from "@/assets/showcase-logo-18-yurane.jpg";
+import noxx from "@/assets/showcase-logo-18-noxx.png";
+import grabGadgets from "@/assets/showcase-logo-19-grab-gadgets.png";
+import createForMe from "@/assets/showcase-logo-21-create-for-me.png";
+import makeTheVibes from "@/assets/showcase-logo-23-make-the-vibes.png";
+import leaderLessons from "@/assets/showcase-logo-24-leader-lessons.webp";
+import gradientMark from "@/assets/showcase-logo-25-gradient-mark.jpg";
 import reelCover1 from "@/assets/reel-cover-1.jpg";
 import reelCover2 from "@/assets/reel-cover-2.jpg";
 import reelCover3 from "@/assets/reel-cover-3.jpg";
+import { MediaImage } from "@/components/MediaImage";
 import { Reveal } from "../Reveal";
 
 type Slide = { src: string; alt: string };
@@ -66,12 +67,12 @@ const projects: Project[] = [
     description: "A complete social campaign built around clarity, energy, and everyday wellness.",
     frame: "portrait",
     slides: [
-      { src: showcase1.url, alt: "Immune Plus summer reset campaign cover" },
-      { src: showcase2.url, alt: "Immune Plus campaign benefits graphic" },
-      { src: showcase3.url, alt: "Immune Plus campaign comparison graphic" },
-      { src: showcase4.url, alt: "Immune Plus campaign steps graphic" },
-      { src: showcase5.url, alt: "Immune Plus campaign product benefits graphic" },
-      { src: showcase6.url, alt: "Immune Plus campaign call to action graphic" },
+      { src: showcase1, alt: "Immune Plus summer reset campaign cover" },
+      { src: showcase2, alt: "Immune Plus campaign benefits graphic" },
+      { src: showcase3, alt: "Immune Plus campaign comparison graphic" },
+      { src: showcase4, alt: "Immune Plus campaign steps graphic" },
+      { src: showcase5, alt: "Immune Plus campaign product benefits graphic" },
+      { src: showcase6, alt: "Immune Plus campaign call to action graphic" },
     ],
   },
   {
@@ -81,13 +82,13 @@ const projects: Project[] = [
     description: "A visual study of how iconic brands refine their symbols for stronger recognition.",
     frame: "portrait",
     slides: [
-      { src: logoIntro.url, alt: "Logo redesigns series introduction" },
-      { src: nike.url, alt: "Nike logo redesign comparison" },
-      { src: instagram.url, alt: "Instagram logo redesign comparison" },
-      { src: apple.url, alt: "Apple logo redesign comparison" },
-      { src: starbucks.url, alt: "Starbucks logo redesign comparison" },
-      { src: burgerKing.url, alt: "Burger King logo redesign comparison" },
-      { src: followMore.url, alt: "Logo redesigns series closing slide" },
+      { src: logoIntro, alt: "Logo redesigns series introduction" },
+      { src: nike, alt: "Nike logo redesign comparison" },
+      { src: instagram, alt: "Instagram logo redesign comparison" },
+      { src: apple, alt: "Apple logo redesign comparison" },
+      { src: starbucks, alt: "Starbucks logo redesign comparison" },
+      { src: burgerKing, alt: "Burger King logo redesign comparison" },
+      { src: followMore, alt: "Logo redesigns series closing slide" },
     ],
   },
   {
@@ -97,25 +98,25 @@ const projects: Project[] = [
     description: "A collection of logo directions shaped for distinct voices, from refined wordmarks to bold visual systems.",
     frame: "square",
     slides: [
-      { src: craftCharm.url, alt: "Craft and Charm logo identity" },
-      { src: dynamicDesigns.url, alt: "Dynamic Designs logo identity" },
-      { src: dynamicDesignsMark.url, alt: "Dynamic Designs bold logo identity" },
-      { src: grvnthMark.url, alt: "Grvnth logo identity" },
-      { src: adventureSmp.url, alt: "Adventure SMP logo identity" },
-      { src: xsaltyxfupax.url, alt: "Xsaltyxfupax gaming logo identity" },
-      { src: splash.url, alt: "Splash beverage logo identity" },
-      { src: trendora.url, alt: "Trendora logo identity" },
-      { src: vibeSpot.url, alt: "Vibe Spot logo identity" },
-      { src: vintageVibes.url, alt: "Vintage Vibes logo identity" },
-      { src: editMark.url, alt: "Video editing studio logo with film strip, play button, and scissors" },
-      { src: logo17.url, alt: "Logo identity from the latest logo collection" },
-      { src: yurane.url, alt: "Yurane logo with celestial line-art mark" },
-      { src: noxx.url, alt: "Noxx royal emblem logo" },
-      { src: grabGadgets.url, alt: "Grab Gadgets logo with handheld device icon" },
-      { src: createForMe.url, alt: "Create For Me logo with gear mark" },
-      { src: makeTheVibes.url, alt: "Make the Vibes logo identity" },
-      { src: leaderLessons.url, alt: "Leader Lessons logo identity" },
-      { src: gradientMark.url, alt: "Blue and cyan gradient logo mark" },
+      { src: craftCharm, alt: "Craft and Charm logo identity" },
+      { src: dynamicDesigns, alt: "Dynamic Designs logo identity" },
+      { src: dynamicDesignsMark, alt: "Dynamic Designs bold logo identity" },
+      { src: grvnthMark, alt: "Grvnth logo identity" },
+      { src: adventureSmp, alt: "Adventure SMP logo identity" },
+      { src: xsaltyxfupax, alt: "Xsaltyxfupax gaming logo identity" },
+      { src: splash, alt: "Splash beverage logo identity" },
+      { src: trendora, alt: "Trendora logo identity" },
+      { src: vibeSpot, alt: "Vibe Spot logo identity" },
+      { src: vintageVibes, alt: "Vintage Vibes logo identity" },
+      { src: editMark, alt: "Video editing studio logo with film strip, play button, and scissors" },
+      { src: logo17, alt: "Logo identity from the latest logo collection" },
+      { src: yurane, alt: "Yurane logo with celestial line-art mark" },
+      { src: noxx, alt: "Noxx royal emblem logo" },
+      { src: grabGadgets, alt: "Grab Gadgets logo with handheld device icon" },
+      { src: createForMe, alt: "Create For Me logo with gear mark" },
+      { src: makeTheVibes, alt: "Make the Vibes logo identity" },
+      { src: leaderLessons, alt: "Leader Lessons logo identity" },
+      { src: gradientMark, alt: "Blue and cyan gradient logo mark" },
     ],
   },
   {
@@ -125,8 +126,8 @@ const projects: Project[] = [
     description: "Two cinematic cover directions built around atmosphere, contrast, and a strong visual hook.",
     frame: "square",
     slides: [
-      { src: albumWarning.url, alt: "The Last Warning Signal album cover" },
-      { src: albumLife.url, alt: "All My Life album cover" },
+      { src: albumWarning, alt: "The Last Warning Signal album cover" },
+      { src: albumLife, alt: "All My Life album cover" },
     ],
   },
   {
@@ -136,8 +137,8 @@ const projects: Project[] = [
     description: "Two focused flyer directions balancing clear messaging, strong hierarchy, and visual impact.",
     frame: "portrait",
     slides: [
-      { src: ceramicFlyer.url, alt: "Ceramic Junction promotional flyer" },
-      { src: hiringFlyer.url, alt: "Remote opportunities recruitment flyer" },
+      { src: ceramicFlyer, alt: "Ceramic Junction promotional flyer" },
+      { src: hiringFlyer, alt: "Remote opportunities recruitment flyer" },
     ],
   },
   {
@@ -147,11 +148,11 @@ const projects: Project[] = [
     description: "Bold poster compositions built to stop the scroll and communicate at a glance.",
     frame: "portrait",
     slides: [
-      { src: poster13.url, alt: "Make Noise Break Patterns poster" },
-      { src: poster14.url, alt: "Kurta Trends fashion poster" },
-      { src: poster15.url, alt: "Actionsa Your Vote Your Voice poster" },
-      { src: poster17.url, alt: "VettedBuddy brand services poster" },
-      { src: poster18.url, alt: "Partnership secured promotional poster" },
+      { src: poster13, alt: "Make Noise Break Patterns poster" },
+      { src: poster14, alt: "Kurta Trends fashion poster" },
+      { src: poster15, alt: "Actionsa Your Vote Your Voice poster" },
+      { src: poster17, alt: "VettedBuddy brand services poster" },
+      { src: poster18, alt: "Partnership secured promotional poster" },
     ],
   },
   {
@@ -195,7 +196,7 @@ function ShowcaseCard({ project }: { project: Project }) {
     >
       <div className={`relative overflow-hidden rounded-2xl border border-border/70 bg-foreground/[0.04] ${project.frame === "square" ? "aspect-square" : "aspect-[4/5]"}`}>
         <AnimatePresence mode="wait" initial={false}>
-          <motion.img
+          <MediaImage
             key={slide.src}
             src={slide.src}
             alt={slide.alt}
