@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import socialHomepageAsset from "@/assets/social-homepage.jpg.asset.json";
 import { Background } from "@/components/Background";
 import { CursorGlow } from "@/components/CursorGlow";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
@@ -19,30 +20,34 @@ import { Showcase } from "@/components/sections/Showcase";
 import { Stats } from "@/components/sections/Stats";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { WhyMe } from "@/components/sections/WhyMe";
+import { getRequestOrigin } from "@/lib/origin.functions";
+
+const title = "Granth Agrawal | Graphic Designer, Video Editor & Visual Communicator";
+const description =
+  "Granth Agrawal is a freelance graphic designer, video editor and visual communicator creating impactful branding, motion graphics and video content for brands, startups, businesses and creators.";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
+  loader: async () => {
+    const origin = await getRequestOrigin();
+    return {
+      origin,
+      socialImageUrl: `${origin}${socialHomepageAsset.url}`,
+    };
+  },
+  head: ({ loaderData }) => ({
     meta: [
-      { title: "Granth Agrawal | Freelance Graphic Designer & Video Editor" },
-      {
-        name: "description",
-        content:
-          "Creating premium graphic design, motion graphics, and video editing that help brands, creators, and startups grow through impactful visual storytelling.",
-      },
-      { property: "og:title", content: "Granth Agrawal | Freelance Graphic Designer & Video Editor" },
-      {
-        property: "og:description",
-        content:
-          "Creating premium graphic design, motion graphics, and video editing that help brands, creators, and startups grow through impactful visual storytelling.",
-      },
-      { property: "og:url", content: "https://grvnth.lovable.app/" },
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:url", content: `${loaderData.origin}/` },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/vrMdmViP0jhReeJiiJCcidFjdEq1/social-images/social-1785040574512-1000783763.webp" },
-      { name: "twitter:title", content: "Granth Agrawal | Freelance Graphic Designer & Video Editor" },
-      { name: "twitter:description", content: "Creating premium graphic design, motion graphics, and video editing that help brands, creators, and startups grow through impactful visual storytelling." },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/vrMdmViP0jhReeJiiJCcidFjdEq1/social-images/social-1785040574512-1000783763.webp" },
+      { property: "og:image", content: loaderData.socialImageUrl },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+      { name: "twitter:image", content: loaderData.socialImageUrl },
     ],
-    links: [{ rel: "canonical", href: "https://grvnth.lovable.app/" }],
+    links: [{ rel: "canonical", href: `${loaderData.origin}/` }],
     scripts: [
       {
         type: "application/ld+json",
@@ -50,8 +55,9 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "Person",
           name: "Granth Agrawal",
-          url: "https://grvnth.lovable.app/",
-          jobTitle: "Freelance Graphic Designer & Video Editor",
+          url: `${loaderData.origin}/`,
+          jobTitle: "Graphic Designer, Video Editor & Visual Communicator",
+          description,
           email: "mailto:hello@grvnth.cc.cd",
           sameAs: [
             "https://instagram.com/_grvnth_",
