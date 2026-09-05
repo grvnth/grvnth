@@ -25,6 +25,7 @@ import { getRequestOrigin } from "@/lib/origin.functions";
 const title = "Granth Agrawal | Graphic Designer, Video Editor & Visual Communicator";
 const description =
   "Granth Agrawal is a freelance graphic designer, video editor and visual communicator creating impactful branding, motion graphics and video content for brands, startups, businesses and creators.";
+const fallbackOrigin = "https://grvnth.lovable.app";
 
 export const Route = createFileRoute("/")({
   loader: async () => {
@@ -34,51 +35,55 @@ export const Route = createFileRoute("/")({
       socialImageUrl: `${origin}${socialHomepageAsset.url}`,
     };
   },
-  head: ({ loaderData }) => ({
-    meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:url", content: `${loaderData.origin}/` },
-      { property: "og:type", content: "website" },
-      { property: "og:image", content: loaderData.socialImageUrl },
-      { name: "twitter:title", content: title },
-      { name: "twitter:description", content: description },
-      { name: "twitter:image", content: loaderData.socialImageUrl },
-    ],
-    links: [{ rel: "canonical", href: `${loaderData.origin}/` }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Person",
-          name: "Granth Agrawal",
-          url: `${loaderData.origin}/`,
-          jobTitle: "Graphic Designer, Video Editor & Visual Communicator",
-          description,
-          email: "mailto:hello@grvnth.cc.cd",
-          sameAs: [
-            "https://instagram.com/_grvnth_",
-            "https://linkedin.com/in/granth-agrawal-8926a039a",
-          ],
-          knowsAbout: [
-            "Graphic Design",
-            "Video Editing",
-            "Motion Graphics",
-            "Brand Identity",
-            "Post-Production",
-          ],
-          makesOffer: [
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Graphic Design" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Video Editing" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Motion Graphics" } },
-          ],
-        }),
-      },
-    ],
-  }),
+  head: ({ loaderData }) => {
+    const origin = loaderData?.origin ?? fallbackOrigin;
+    const socialImageUrl = loaderData?.socialImageUrl ?? `${fallbackOrigin}${socialHomepageAsset.url}`;
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:url", content: `${origin}/` },
+        { property: "og:type", content: "website" },
+        { property: "og:image", content: socialImageUrl },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: description },
+        { name: "twitter:image", content: socialImageUrl },
+      ],
+      links: [{ rel: "canonical", href: `${origin}/` }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Granth Agrawal",
+            url: `${origin}/`,
+            jobTitle: "Graphic Designer, Video Editor & Visual Communicator",
+            description,
+            email: "mailto:hello@grvnth.cc.cd",
+            sameAs: [
+              "https://instagram.com/_grvnth_",
+              "https://linkedin.com/in/granth-agrawal-8926a039a",
+            ],
+            knowsAbout: [
+              "Graphic Design",
+              "Video Editing",
+              "Motion Graphics",
+              "Brand Identity",
+              "Post-Production",
+            ],
+            makesOffer: [
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Graphic Design" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Video Editing" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Motion Graphics" } },
+            ],
+          }),
+        },
+      ],
+    };
+  },
   component: Index,
 });
 
