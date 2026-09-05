@@ -1,4 +1,5 @@
-import { motion, type ComponentProps } from "framer-motion";
+import { motion } from "framer-motion";
+import type { ComponentProps } from "react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
