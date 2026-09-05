@@ -79,7 +79,8 @@ const projects: Project[] = [
     number: "02",
     category: "Brand study",
     title: "Logo Redesigns",
-    description: "A visual study of how iconic brands refine their symbols for stronger recognition.",
+    description:
+      "A visual study of how iconic brands refine their symbols for stronger recognition.",
     frame: "portrait",
     slides: [
       { src: logoIntro, alt: "Logo redesigns series introduction" },
@@ -95,7 +96,8 @@ const projects: Project[] = [
     number: "03",
     category: "Logo identity",
     title: "Identity explorations",
-    description: "A collection of logo directions shaped for distinct voices, from refined wordmarks to bold visual systems.",
+    description:
+      "A collection of logo directions shaped for distinct voices, from refined wordmarks to bold visual systems.",
     frame: "square",
     slides: [
       { src: craftCharm, alt: "Craft and Charm logo identity" },
@@ -108,7 +110,10 @@ const projects: Project[] = [
       { src: trendora, alt: "Trendora logo identity" },
       { src: vibeSpot, alt: "Vibe Spot logo identity" },
       { src: vintageVibes, alt: "Vintage Vibes logo identity" },
-      { src: editMark, alt: "Video editing studio logo with film strip, play button, and scissors" },
+      {
+        src: editMark,
+        alt: "Video editing studio logo with film strip, play button, and scissors",
+      },
       { src: logo17, alt: "Logo identity from the latest logo collection" },
       { src: yurane, alt: "Yurane logo with celestial line-art mark" },
       { src: noxx, alt: "Noxx royal emblem logo" },
@@ -123,7 +128,8 @@ const projects: Project[] = [
     number: "04",
     category: "Cover art carousel",
     title: "Album covers",
-    description: "Two cinematic cover directions built around atmosphere, contrast, and a strong visual hook.",
+    description:
+      "Two cinematic cover directions built around atmosphere, contrast, and a strong visual hook.",
     frame: "square",
     slides: [
       { src: albumWarning, alt: "The Last Warning Signal album cover" },
@@ -134,7 +140,8 @@ const projects: Project[] = [
     number: "05",
     category: "Flyer design",
     title: "Flyer studies",
-    description: "Two focused flyer directions balancing clear messaging, strong hierarchy, and visual impact.",
+    description:
+      "Two focused flyer directions balancing clear messaging, strong hierarchy, and visual impact.",
     frame: "portrait",
     slides: [
       { src: ceramicFlyer, alt: "Ceramic Junction promotional flyer" },
@@ -159,7 +166,8 @@ const projects: Project[] = [
     number: "07",
     category: "Reel design",
     title: "Reel covers",
-    description: "Scroll-stopping reel covers built around bold typography, contrast, and a strong hook.",
+    description:
+      "Scroll-stopping reel covers built around bold typography, contrast, and a strong hook.",
     frame: "portrait",
     slides: [
       { src: reelCover1, alt: "Would You Hire Me reel cover with cinematic forest scene" },
@@ -194,7 +202,9 @@ function ShowcaseCard({ project }: { project: Project }) {
       transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
       className="group mx-auto w-full max-w-[18.5rem] sm:mx-0 sm:max-w-none"
     >
-      <div className={`relative overflow-hidden rounded-2xl border border-border/70 bg-foreground/[0.04] ${project.frame === "square" ? "aspect-square" : "aspect-[4/5]"}`}>
+      <div
+        className={`relative overflow-hidden rounded-2xl border border-border/70 bg-foreground/[0.04] ${project.frame === "square" ? "aspect-square" : "aspect-[4/5]"}`}
+      >
         <AnimatePresence mode="wait" initial={false}>
           <MediaImage
             key={slide.src}
@@ -222,7 +232,8 @@ function ShowcaseCard({ project }: { project: Project }) {
               <Arrow direction="left" />
             </Button>
             <span className="font-mono text-[0.62rem] uppercase tracking-[0.25em] text-muted-foreground">
-              {String(active + 1).padStart(2, "0")} / {String(project.slides.length).padStart(2, "0")}
+              {String(active + 1).padStart(2, "0")} /{" "}
+              {String(project.slides.length).padStart(2, "0")}
             </span>
             <Button
               type="button"
@@ -246,7 +257,9 @@ function ShowcaseCard({ project }: { project: Project }) {
           <h3 className="mt-2 font-display text-2xl font-bold leading-tight tracking-tight sm:text-3xl">
             {project.title}
           </h3>
-          <p className="mt-2 max-w-md text-sm leading-[1.65] text-muted-foreground">{project.description}</p>
+          <p className="mt-2 max-w-md text-sm leading-[1.65] text-muted-foreground">
+            {project.description}
+          </p>
         </div>
       </div>
 
@@ -263,7 +276,9 @@ function ShowcaseCard({ project }: { project: Project }) {
               onClick={() => setActive(index)}
               className="h-5 w-5 rounded-full p-0 hover:bg-transparent"
             >
-              <span className={`h-1.5 rounded-full transition-all duration-300 ${index === active ? "w-5 bg-foreground" : "w-1.5 bg-foreground/25"}`} />
+              <span
+                className={`h-1.5 rounded-full transition-all duration-300 ${index === active ? "w-5 bg-foreground" : "w-1.5 bg-foreground/25"}`}
+              />
             </Button>
           ))}
         </div>
@@ -293,7 +308,8 @@ export function Showcase() {
           </div>
           <Reveal delay={0.2}>
             <p className="max-w-xs text-sm leading-[1.7] text-muted-foreground md:pb-2">
-              A selection of identity studies, campaigns, cover art, and content built to be remembered.
+              A selection of identity studies, campaigns, cover art, and content built to be
+              remembered.
             </p>
           </Reveal>
         </div>
@@ -306,14 +322,25 @@ export function Showcase() {
 
         <Reveal delay={0.1}>
           <div className="mt-20 flex justify-center border-t border-border/60 pt-10">
-            <Button asChild size="lg" className="group rounded-full px-7 py-6 text-sm font-semibold">
+            <Button
+              asChild
+              size="lg"
+              className="group rounded-full px-7 py-6 text-sm font-semibold"
+            >
               <a
                 href="https://drive.google.com/drive/folders/1GrIJ8rAO8mg1UYMEUVJkP1e-0dSX9ady"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 View All Work
-                <svg className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <svg
+                  className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  aria-hidden="true"
+                >
                   <path d="M5 12h14M13 5l7 7-7 7" />
                 </svg>
               </a>

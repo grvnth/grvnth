@@ -48,16 +48,34 @@ export function Hero() {
       className="relative flex min-h-[100svh] items-center justify-center overflow-hidden px-5 pt-32 sm:pt-40"
     >
       {/* floating glass shapes with pointer + scroll parallax */}
-      <motion.div style={{ y: y1, x: smx }} className="glass absolute left-[6%] top-[22%] hidden h-32 w-32 rotate-12 rounded-3xl md:block animate-float-slow" />
-      <motion.div style={{ y: y2, x: negSmx }} className="glass absolute right-[8%] top-[28%] hidden h-40 w-40 -rotate-6 rounded-full md:block animate-float-slow-2" />
-      <motion.div style={{ y: y1, x: smy }} className="glass absolute bottom-[18%] right-[18%] hidden h-24 w-24 rotate-45 rounded-2xl lg:block animate-float-slow-2" />
-      <motion.div style={{ y: y2, x: negSmy }} className="glass absolute bottom-[22%] left-[12%] hidden h-20 w-36 rounded-full lg:block animate-float-slow" />
+      <motion.div
+        style={{ y: y1, x: smx }}
+        className="glass absolute left-[6%] top-[22%] hidden h-32 w-32 rotate-12 rounded-3xl md:block animate-float-slow"
+      />
+      <motion.div
+        style={{ y: y2, x: negSmx }}
+        className="glass absolute right-[8%] top-[28%] hidden h-40 w-40 -rotate-6 rounded-full md:block animate-float-slow-2"
+      />
+      <motion.div
+        style={{ y: y1, x: smy }}
+        className="glass absolute bottom-[18%] right-[18%] hidden h-24 w-24 rotate-45 rounded-2xl lg:block animate-float-slow-2"
+      />
+      <motion.div
+        style={{ y: y2, x: negSmy }}
+        className="glass absolute bottom-[22%] left-[12%] hidden h-20 w-36 rounded-full lg:block animate-float-slow"
+      />
 
-      <motion.div style={{ opacity, y: heroY }} className="relative z-10 mx-auto max-w-5xl text-center">
+      <motion.div
+        style={{ opacity, y: heroY }}
+        className="relative z-10 mx-auto max-w-5xl text-center"
+      >
         <Reveal>
           <div className="glass mx-auto mb-8 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">
             <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-foreground/70" style={{ animation: "pulse-ring 1.8s ease-out infinite" }} />
+              <span
+                className="absolute inline-flex h-full w-full rounded-full bg-foreground/70"
+                style={{ animation: "pulse-ring 1.8s ease-out infinite" }}
+              />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-foreground" />
             </span>
             Available for new projects
@@ -65,7 +83,9 @@ export function Hero() {
         </Reveal>
 
         <h1 className="font-display text-balance text-5xl leading-[0.95] tracking-tight sm:text-7xl md:text-[7.5rem]">
-          <span className="sr-only">Granth Agrawal — Freelance Graphic Designer & Video Editor. </span>
+          <span className="sr-only">
+            Granth Agrawal — Freelance Graphic Designer & Video Editor.{" "}
+          </span>
           <span className="block overflow-hidden pb-2">
             {line1.map((w, i) => (
               <motion.span
@@ -96,8 +116,8 @@ export function Hero() {
 
         <Reveal delay={0.95}>
           <p className="mx-auto mt-8 max-w-2xl text-balance text-base leading-[1.7] text-muted-foreground sm:text-lg">
-            Helping brands, creators, businesses, startups, and personal brands stand out
-            through impactful visuals and content.
+            Helping brands, creators, businesses, startups, and personal brands stand out through
+            impactful visuals and content.
           </p>
         </Reveal>
 
@@ -121,7 +141,10 @@ export function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 6, 0] }}
-        transition={{ opacity: { delay: 1.8, duration: 1 }, y: { duration: 2.4, repeat: Infinity, ease: "easeInOut" } }}
+        transition={{
+          opacity: { delay: 1.8, duration: 1 },
+          y: { duration: 2.4, repeat: Infinity, ease: "easeInOut" },
+        }}
         className="absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-[0.6rem] uppercase tracking-[0.4em] text-muted-foreground"
       >
         <span>Scroll</span>

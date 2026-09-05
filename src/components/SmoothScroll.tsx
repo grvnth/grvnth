@@ -21,7 +21,6 @@ export function SmoothScroll() {
       syncTouch: false,
     });
 
-
     let raf = 0;
     const loop = (time: number) => {
       lenis.raf(time);

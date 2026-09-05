@@ -78,9 +78,7 @@ export function Testimonials() {
                     transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                     className="text-center"
                   >
-                    <div className="text-sm tracking-[0.4em] text-foreground/90">
-                      ★★★★★
-                    </div>
+                    <div className="text-sm tracking-[0.4em] text-foreground/90">★★★★★</div>
                     <p className="mt-6 text-balance font-display text-[1.5rem] font-bold leading-[1.3] tracking-[-0.015em] sm:text-[2rem]">
                       "{reviews[i]}"
                     </p>
@@ -98,7 +96,9 @@ export function Testimonials() {
                     aria-label={`Review ${idx + 1}`}
                     onClick={() => go(idx)}
                     className={`h-1.5 rounded-full transition-all duration-500 ${
-                      idx === i ? "w-10 bg-foreground" : "w-1.5 bg-foreground/25 hover:bg-foreground/50"
+                      idx === i
+                        ? "w-10 bg-foreground"
+                        : "w-1.5 bg-foreground/25 hover:bg-foreground/50"
                     }`}
                   />
                 ))}
