@@ -37,7 +37,8 @@ export const Route = createFileRoute("/")({
   },
   head: ({ loaderData }) => {
     const origin = loaderData?.origin ?? fallbackOrigin;
-    const socialImageUrl = loaderData?.socialImageUrl ?? `${fallbackOrigin}${socialHomepageAsset.url}`;
+    const socialImageUrl =
+      loaderData?.socialImageUrl ?? `${fallbackOrigin}${socialHomepageAsset.url}`;
     return {
       meta: [
         { title },

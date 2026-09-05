@@ -19,9 +19,7 @@ export function Marquee() {
             key={i}
             className="flex items-center gap-12 font-display text-3xl font-semibold tracking-tight text-muted-foreground sm:text-4xl"
           >
-            <span className="italic transition-colors duration-500 hover:text-foreground">
-              {t}
-            </span>
+            <span className="italic transition-colors duration-500 hover:text-foreground">{t}</span>
             <span className="h-1.5 w-1.5 rounded-full bg-foreground/40" />
           </div>
         ))}

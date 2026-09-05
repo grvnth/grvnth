@@ -112,13 +112,7 @@ export function StaggerGroup({
   );
 }
 
-export function StaggerItem({
-  children,
-  className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
+export function StaggerItem({ children, className }: { children: ReactNode; className?: string }) {
   const wc = useWillChange();
   return (
     <motion.div
@@ -259,11 +253,7 @@ export function Parallax({
     target: ref,
     offset: ["start end", "end start"],
   });
-  const raw = useTransform(
-    scrollYProgress,
-    [0, 1],
-    reduced ? [0, 0] : [distance, -distance],
-  );
+  const raw = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [distance, -distance]);
   const y = useSpring(raw, { stiffness: 90, damping: 26, mass: 0.4 });
   return (
     <motion.div ref={ref} style={{ y }} className={className}>

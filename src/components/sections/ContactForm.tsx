@@ -63,7 +63,13 @@ export function ContactForm() {
             className="flex flex-col items-center justify-center py-12 text-center"
           >
             <div className="glass-strong mb-5 flex h-14 w-14 items-center justify-center rounded-2xl">
-              <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                viewBox="0 0 24 24"
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <path d="M5 13l4 4L19 7" />
               </svg>
             </div>
@@ -96,7 +102,10 @@ export function ContactForm() {
           >
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
-                <label htmlFor="cf-name" className="mb-2 block text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">
+                <label
+                  htmlFor="cf-name"
+                  className="mb-2 block text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground"
+                >
                   Name
                 </label>
                 <input
@@ -111,7 +120,10 @@ export function ContactForm() {
                 {errors.name && <p className="mt-1 text-xs text-red-400">{errors.name}</p>}
               </div>
               <div>
-                <label htmlFor="cf-email" className="mb-2 block text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">
+                <label
+                  htmlFor="cf-email"
+                  className="mb-2 block text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground"
+                >
                   Email
                 </label>
                 <input
@@ -151,7 +163,10 @@ export function ContactForm() {
             </div>
 
             <div>
-              <label htmlFor="cf-message" className="mb-2 block text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">
+              <label
+                htmlFor="cf-message"
+                className="mb-2 block text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground"
+              >
                 Message
               </label>
               <textarea
@@ -171,10 +186,12 @@ export function ContactForm() {
                 Send via
               </label>
               <div className="flex flex-wrap gap-2">
-                {([
-                  { id: "whatsapp", label: "WhatsApp", hint: "Recommended" },
-                  { id: "email", label: "Email", hint: null },
-                ] as { id: Method; label: string; hint: string | null }[]).map((m) => (
+                {(
+                  [
+                    { id: "whatsapp", label: "WhatsApp", hint: "Recommended" },
+                    { id: "email", label: "Email", hint: null },
+                  ] as { id: Method; label: string; hint: string | null }[]
+                ).map((m) => (
                   <button
                     type="button"
                     key={m.id}
@@ -203,7 +220,13 @@ export function ContactForm() {
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium tracking-tight text-background transition hover:bg-foreground/90"
             >
               {method === "whatsapp" ? "Send via WhatsApp" : "Send via Email"}
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                viewBox="0 0 24 24"
+                className="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <path d="M5 12h14M13 5l7 7-7 7" />
               </svg>
             </motion.button>

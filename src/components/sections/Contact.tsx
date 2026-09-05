@@ -20,7 +20,13 @@ const channels = [
     href: "https://instagram.com/_grvnth_",
     handle: "@_grvnth_",
     icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+      <svg
+        viewBox="0 0 24 24"
+        className="h-5 w-5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
         <rect x="3" y="3" width="18" height="18" rx="5" />
         <circle cx="12" cy="12" r="4" />
         <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
@@ -42,7 +48,13 @@ const channels = [
     href: "mailto:hello@grvnth.cc.cd",
     handle: "hello@grvnth.cc.cd",
     icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+      <svg
+        viewBox="0 0 24 24"
+        className="h-5 w-5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
         <rect x="3" y="5" width="18" height="14" rx="2" />
         <path d="M3 7l9 6 9-6" />
       </svg>
@@ -144,7 +156,6 @@ export function Contact() {
             </div>
           </div>
         </ScaleIn>
-
       </div>
     </section>
   );

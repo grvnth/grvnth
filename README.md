@@ -2,19 +2,13 @@
 
 Create a premium personal portfolio website for GRVNTH, a Graphic Designer and Video Editor.
 
-
-
 The website should feel like a modern creative agency website with a luxury Apple-inspired aesthetic.
-
-
 
 ====================================
 
 DESIGN STYLE
 
 ====================================
-
-
 
 - Black, White, and Grey theme
 
@@ -32,8 +26,6 @@ DESIGN STYLE
 
 - Dark mode by default
 
-
-
 Tech Stack:
 
 - React
@@ -44,15 +36,11 @@ Tech Stack:
 
 - Framer Motion
 
-
-
 ====================================
 
 LOADING SCREEN
 
 ====================================
-
-
 
 Create a premium loading screen with:
 
@@ -62,63 +50,37 @@ Create a premium loading screen with:
 
 - Smooth fade transition
 
-
-
 ====================================
 
 HERO SECTION
 
 ====================================
 
-
-
 Main Heading:
-
-
 
 Turning Ideas Into Impact.
 
-
-
 Sub Heading:
-
-
 
 Helping brands, creators, businesses, startups, and personal brands stand out through impactful visuals and content.
 
-
-
 Buttons:
 
-
-
 1. View My Designs
-
-
 
 Link:
 
 https://drive.google.com/drive/folders/1GrIJ8rAO8mg1UYMEUVJkP1e-0dSX9ady
 
-
-
 Open in new tab
 
-
-
 2. Contact Me
-
-
 
 Link:
 
 https://wa.me/919549946123
 
-
-
 Open in new tab
-
-
 
 Add:
 
@@ -130,37 +92,23 @@ Add:
 
 - Premium reveal animations
 
-
-
 ====================================
 
 ABOUT ME
 
 ====================================
 
-
-
 Title:
 
 About Me
 
-
-
 Content:
-
-
 
 Passionate about transforming ideas into visuals and videos that capture attention, tell stories, and leave a lasting impression.
 
-
-
 As a Graphic Designer and Video Editor, I create engaging content that blends creativity, strategy, and storytelling to help brands, businesses, and creators stand out.
 
-
-
 From social media creatives and branding to promotional videos and digital content, I focus on delivering impactful, modern, and memorable visual experiences.
-
-
 
 ====================================
 
@@ -168,39 +116,21 @@ SERVICES SECTION
 
 ====================================
 
-
-
 Display services inside premium liquid glass cards.
-
-
 
 Services:
 
-
-
 • Graphic Design
-
-
 
 • Video Editing
 
-
-
 • Social Media Design
-
-
 
 • Branding
 
-
-
 • Thumbnail Design
 
-
-
 • Motion Graphics
-
-
 
 Each card should include:
 
@@ -210,43 +140,29 @@ Each card should include:
 
 - Glassmorphism styling
 
-
-
 ====================================
 
 STATS SECTION
 
 ====================================
 
-
-
 Display inside animated liquid glass cards.
-
-
 
 100+
 
 Projects Completed
 
-
-
 50+
 
 Happy Clients
-
-
 
 2+
 
 Years of Experience
 
-
-
 24/7
 
 Communication & Support
-
-
 
 ====================================
 
@@ -254,35 +170,19 @@ WHY WORK WITH ME
 
 ====================================
 
-
-
 Display inside premium glass cards.
-
-
 
 • Modern Visuals
 
-
-
 • Creative Solutions
-
-
 
 • Attention To Detail
 
-
-
 • Fast Delivery
-
-
 
 • Client Focused
 
-
-
 • Consistent Quality
-
-
 
 ====================================
 
@@ -290,15 +190,9 @@ TESTIMONIALS SECTION
 
 ====================================
 
-
-
 IMPORTANT:
 
-
-
 DO NOT SHOW:
-
-
 
 - Reviewer Names
 
@@ -318,67 +212,35 @@ DO NOT SHOW:
 
 - Job Titles
 
-
-
 Show ONLY:
 
-
-
 ★★★★★
-
-
 
 Review Text
 
-
-
 Create a premium glassmorphism carousel.
-
-
 
 Use reviews like:
 
-
-
 ★★★★★
-
-
 
 "Exceptional work quality and attention to detail. Every project exceeded expectations."
 
-
-
 ★★★★★
-
-
 
 "Fast delivery, great communication, and professional results throughout the entire process."
 
-
-
 ★★★★★
-
-
 
 "Creative, reliable, and highly skilled. The final designs helped elevate our brand presence."
 
-
-
 ★★★★★
-
-
 
 "Understood our requirements perfectly and delivered visuals that stood out immediately."
 
-
-
 ★★★★★
 
-
-
 "Professional experience from start to finish. Highly recommended for design and editing projects."
-
-
 
 ====================================
 
@@ -386,35 +248,23 @@ CONTACT SECTION
 
 ====================================
 
-
-
 WhatsApp:
 
 https://wa.me/919549946123
-
-
 
 Instagram:
 
 https://instagram.com/_grvnth_
 
-
-
 LinkedIn:
 
 https://linkedin.com/in/granth-agrawal-8926a039a
-
-
 
 Email:
 
 mailto:grvnth.design@gmail.com
 
-
-
 Create premium glass buttons for:
-
-
 
 - WhatsApp
 
@@ -424,11 +274,7 @@ Create premium glass buttons for:
 
 - Email
 
-
-
 Add smooth hover animations.
-
-
 
 ====================================
 
@@ -436,29 +282,19 @@ FLOATING BUTTON
 
 ====================================
 
-
-
 Add a floating WhatsApp button.
-
-
 
 Link:
 
 https://wa.me/919549946123
 
-
-
 Position:
 
 Bottom Right
 
-
-
 Style:
 
 Premium Liquid Glass
-
-
 
 ====================================
 
@@ -466,45 +302,29 @@ FOOTER
 
 ====================================
 
-
-
 Include:
-
-
 
 Instagram:
 
 https://instagram.com/_grvnth_
 
-
-
 LinkedIn:
 
 https://linkedin.com/in/granth-agrawal-8926a039a
-
-
 
 Email:
 
 grvnth.design@gmail.com
 
-
-
 Copyright:
 
-
-
 © 2026 GRVNTH. All Rights Reserved.
-
-
 
 ====================================
 
 ANIMATIONS
 
 ====================================
-
-
 
 - Smooth scrolling
 
@@ -524,15 +344,11 @@ ANIMATIONS
 
 - Framer Motion powered animations
 
-
-
 ====================================
 
 REMOVE THESE SECTIONS
 
 ====================================
-
-
 
 - Portfolio Section
 
@@ -546,23 +362,15 @@ REMOVE THESE SECTIONS
 
 - PayPal Section
 
-
-
 ====================================
 
 IMPORTANT
 
 ====================================
 
-
-
 The website should look like a premium creative studio website.
 
-
-
 Do not use bright colors.
-
-
 
 Focus on:
 
@@ -574,35 +382,21 @@ Focus on:
 
 - Frosted Glass Effects
 
-
-
 The primary CTA should be:
 
-
-
 "View My Designs"
-
-
 
 linked to:
 
 https://drive.google.com/drive/folders/1GrIJ8rAO8mg1UYMEUVJkP1e-0dSX9ady
 
-
-
 The secondary CTA should be:
 
-
-
 "Contact Me"
-
-
 
 linked to:
 
 https://wa.me/919549946123
-
-
 
 The final result should be modern, minimal, premium, highly animated, and optimized to attract graphic design and video editing clients.
 

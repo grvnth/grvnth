@@ -1,14 +1,29 @@
-import { motion, useMotionValue, useSpring, useTransform, useScroll, type Variants } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  useScroll,
+  type Variants,
+} from "framer-motion";
 import { useRef, type MouseEvent } from "react";
 import { Reveal } from "../Reveal";
 
 const services = [
-  { n: "01", t: "Graphic Design", d: "Bold, modern visuals that command attention across every surface." },
+  {
+    n: "01",
+    t: "Graphic Design",
+    d: "Bold, modern visuals that command attention across every surface.",
+  },
   { n: "02", t: "Video Editing", d: "Cinematic cuts, rhythm, and pacing that hold the viewer in." },
   { n: "03", t: "Social Media Design", d: "Scroll-stopping creatives engineered for the feed." },
   { n: "04", t: "Branding", d: "Identity systems with a distinct voice and lasting recall." },
   { n: "05", t: "Thumbnail Design", d: "Click-worthy thumbnails crafted to drive watch-time." },
-  { n: "06", t: "Motion Graphics", d: "Animated typography and effects that bring stories to life." },
+  {
+    n: "06",
+    t: "Motion Graphics",
+    d: "Animated typography and effects that bring stories to life.",
+  },
 ];
 
 const cardVariants: Variants = {
@@ -69,7 +84,10 @@ function ServiceCard({ s }: { s: (typeof services)[number] }) {
           {s.n}
         </span>
         <span className="relative flex h-1.5 w-1.5">
-          <span className="absolute inline-flex h-full w-full rounded-full bg-foreground/40" style={{ animation: "pulse-ring 2.4s ease-out infinite" }} />
+          <span
+            className="absolute inline-flex h-full w-full rounded-full bg-foreground/40"
+            style={{ animation: "pulse-ring 2.4s ease-out infinite" }}
+          />
           <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-foreground/70" />
         </span>
       </div>
@@ -82,7 +100,6 @@ function ServiceCard({ s }: { s: (typeof services)[number] }) {
     </motion.div>
   );
 }
-
 
 export function Services() {
   const ref = useRef<HTMLDivElement>(null);
@@ -110,9 +127,7 @@ export function Services() {
               <h2 className="mt-6 font-display text-balance text-[2.5rem] font-bold leading-[1.02] tracking-[-0.03em] sm:text-6xl md:text-7xl">
                 Crafted across
                 <br />
-                <span className="italic font-semibold text-muted-foreground">
-                  every medium.
-                </span>
+                <span className="italic font-semibold text-muted-foreground">every medium.</span>
               </h2>
             </Reveal>
           </div>

@@ -16,14 +16,16 @@ const DEFAULT_HINT = { changefreq: "monthly", priority: "0.7" };
 function collectPaths(): string[] {
   const paths = new Set<string>();
   // routeTree.gen keeps every route id under fileRoutesByPath; walk the generated map.
-  const byPath = (routeTree as unknown as {
+  const byPath = routeTree as unknown as {
     _addFileTypes?: unknown;
-  }) as { children?: Record<string, unknown> };
+  } as { children?: Record<string, unknown> };
 
   // Preferred: read the generated FileRoutesByFullPath keys.
   // We import routeTree at runtime, but its shape only exposes children; use the
   // internal `_flatRoutes` when available, otherwise fall back to a manual walk.
-  const anyTree = routeTree as unknown as { children?: Record<string, { id?: string; fullPath?: string; children?: unknown }> };
+  const anyTree = routeTree as unknown as {
+    children?: Record<string, { id?: string; fullPath?: string; children?: unknown }>;
+  };
   const stack: Array<{ id?: string; fullPath?: string; children?: unknown }> = [];
   if (anyTree.children) stack.push(...Object.values(anyTree.children));
   while (stack.length) {
@@ -42,7 +44,9 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const paths = collectPaths().sort((a, b) => (a === "/" ? -1 : b === "/" ? 1 : a.localeCompare(b)));
+        const paths = collectPaths().sort((a, b) =>
+          a === "/" ? -1 : b === "/" ? 1 : a.localeCompare(b),
+        );
 
         const urls = paths.map((path) => {
           const hint = HINTS[path] ?? DEFAULT_HINT;

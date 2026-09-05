@@ -37,10 +37,8 @@ export function Background() {
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
           backgroundSize: "80px 80px",
-          maskImage:
-            "radial-gradient(ellipse at center, black 40%, transparent 75%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse at center, black 40%, transparent 75%)",
+          maskImage: "radial-gradient(ellipse at center, black 40%, transparent 75%)",
+          WebkitMaskImage: "radial-gradient(ellipse at center, black 40%, transparent 75%)",
         }}
       />
 

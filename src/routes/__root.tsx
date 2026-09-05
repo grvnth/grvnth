@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -39,10 +40,8 @@ function NotFoundComponent() {
             backgroundImage:
               "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
             backgroundSize: "80px 80px",
-            maskImage:
-              "radial-gradient(ellipse at center, black 40%, transparent 75%)",
-            WebkitMaskImage:
-              "radial-gradient(ellipse at center, black 40%, transparent 75%)",
+            maskImage: "radial-gradient(ellipse at center, black 40%, transparent 75%)",
+            WebkitMaskImage: "radial-gradient(ellipse at center, black 40%, transparent 75%)",
           }}
         />
       </div>
@@ -56,8 +55,8 @@ function NotFoundComponent() {
           <span className="italic text-muted-foreground"> space.</span>
         </h1>
         <p className="mx-auto mt-6 max-w-sm text-balance text-sm leading-[1.7] text-muted-foreground">
-          The page you're looking for doesn't exist or has drifted off. Let's
-          get you back to something useful.
+          The page you're looking for doesn't exist or has drifted off. Let's get you back to
+          something useful.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
           <a
@@ -66,7 +65,13 @@ function NotFoundComponent() {
           >
             <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-black/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
             <span className="relative z-10">Go to Main Site</span>
-            <svg className="relative z-10 h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              className="relative z-10 h-4 w-4 transition-transform duration-500 group-hover:translate-x-1"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <path d="M5 12h14M13 5l7 7-7 7" />
             </svg>
           </a>
@@ -157,6 +162,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
         {children}
         <Scripts />
+        <Analytics />
       </body>
     </html>
   );

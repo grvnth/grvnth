@@ -69,9 +69,7 @@ export function Experience() {
           <h2 className="mt-6 font-display text-balance text-[2.5rem] font-bold leading-[1.02] tracking-[-0.03em] sm:text-6xl md:text-7xl">
             Where I've
             <br />
-            <span className="italic font-semibold text-muted-foreground">
-              been building.
-            </span>
+            <span className="italic font-semibold text-muted-foreground">been building.</span>
           </h2>
         </Reveal>
 
@@ -86,12 +84,8 @@ export function Experience() {
                 >
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <div>
-                      <h3 className="font-display text-lg font-bold tracking-tight">
-                        {r.role}
-                      </h3>
-                      <p className="mt-0.5 text-sm font-medium text-muted-foreground">
-                        {r.org}
-                      </p>
+                      <h3 className="font-display text-lg font-bold tracking-tight">{r.role}</h3>
+                      <p className="mt-0.5 text-sm font-medium text-muted-foreground">{r.org}</p>
                     </div>
                     <span className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-muted-foreground/70">
                       {r.period}
@@ -147,10 +141,7 @@ export function Experience() {
                 </h3>
                 <ul className="mt-4 space-y-2.5">
                   {languages.map((l) => (
-                    <li
-                      key={l.lang}
-                      className="flex items-center justify-between text-sm"
-                    >
+                    <li key={l.lang} className="flex items-center justify-between text-sm">
                       <span className="font-medium tracking-tight">{l.lang}</span>
                       <span className="text-xs text-muted-foreground">{l.level}</span>
                     </li>
