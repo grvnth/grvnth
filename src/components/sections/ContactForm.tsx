@@ -158,8 +158,8 @@ export function ContactForm() {
               onClick={() => {
                 setSent(false);
                 setForm({ name: "", email: "", budget: budgets[1], message: "" });
-                 setAttachment(null);
-                 setErrors({});
+                setAttachment(null);
+                setErrors({});
               }}
               className="mt-6 text-xs uppercase tracking-[0.3em] text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
             >
@@ -260,7 +260,10 @@ export function ContactForm() {
                 htmlFor="cf-attachment"
                 className="mb-2 block text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground"
               >
-                Attach media <span className="normal-case tracking-normal text-muted-foreground/60">(optional)</span>
+                Attach media{" "}
+                <span className="normal-case tracking-normal text-muted-foreground/60">
+                  (optional)
+                </span>
               </label>
               <input
                 id="cf-attachment"
@@ -275,9 +278,13 @@ export function ContactForm() {
                 className="block w-full cursor-pointer rounded-xl border border-dashed border-white/15 bg-white/[0.03] px-4 py-3 text-sm text-muted-foreground file:mr-3 file:rounded-full file:border-0 file:bg-white/[0.08] file:px-3 file:py-1.5 file:text-xs file:font-medium file:text-foreground hover:border-white/30"
               />
               <p className="mt-2 text-xs text-muted-foreground/70">
-                {attachment ? `${attachment.name} · ${(attachment.size / 1024 / 1024).toFixed(1)} MB` : "Images, videos, audio, or PDFs up to 20 MB"}
+                {attachment
+                  ? `${attachment.name} · ${(attachment.size / 1024 / 1024).toFixed(1)} MB`
+                  : "Images, videos, audio, or PDFs up to 20 MB"}
               </p>
-              {errors.attachment && <p className="mt-1 text-xs text-red-400">{errors.attachment}</p>}
+              {errors.attachment && (
+                <p className="mt-1 text-xs text-red-400">{errors.attachment}</p>
+              )}
             </div>
 
             <div>
@@ -319,7 +326,11 @@ export function ContactForm() {
               whileTap={{ scale: 0.98 }}
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium tracking-tight text-background transition hover:bg-foreground/90 disabled:cursor-wait disabled:opacity-60"
             >
-              {uploading ? "Preparing…" : method === "whatsapp" ? "Send via WhatsApp" : "Send via Email"}
+              {uploading
+                ? "Preparing…"
+                : method === "whatsapp"
+                  ? "Send via WhatsApp"
+                  : "Send via Email"}
               <svg
                 viewBox="0 0 24 24"
                 className="h-4 w-4"
