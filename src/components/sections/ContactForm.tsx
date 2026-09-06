@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { z } from "zod";
+import { supabase } from "@/integrations/supabase/client";
 
 const budgets = ["< ₹10k", "₹10k – ₹50k", "₹50k – ₹1L", "₹1L+", "Let's discuss"];
 
@@ -8,11 +10,35 @@ const WHATSAPP = "919549946123";
 
 type Method = "whatsapp" | "email";
 
+const MAX_ATTACHMENT_SIZE = 20 * 1024 * 1024;
+const ALLOWED_ATTACHMENT_TYPES = [
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "image/gif",
+  "image/svg+xml",
+  "video/mp4",
+  "video/webm",
+  "video/quicktime",
+  "audio/mpeg",
+  "audio/wav",
+  "audio/mp4",
+  "application/pdf",
+] as const;
+
+const attachmentSchema = z.object({
+  name: z.string().trim().min(1).max(160),
+  type: z.enum(ALLOWED_ATTACHMENT_TYPES),
+  size: z.number().int().positive().max(MAX_ATTACHMENT_SIZE),
+});
+
 export function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", budget: budgets[1], message: "" });
   const [method, setMethod] = useState<Method>("whatsapp");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [sent, setSent] = useState(false);
+  const [attachment, setAttachment] = useState<File | null>(null);
+  const [uploading, setUploading] = useState(false);
 
   function validate() {
     const e: Record<string, string> = {};
@@ -21,31 +47,77 @@ export function ContactForm() {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = "Enter a valid email";
     if (!form.message.trim()) e.message = "Tell me a bit about the project";
     else if (form.message.length > 2000) e.message = "Message too long";
+    if (attachment) {
+      const attachmentResult = attachmentSchema.safeParse({
+        name: attachment.name,
+        type: attachment.type,
+        size: attachment.size,
+      });
+      if (!attachmentResult.success) {
+        e.attachment =
+          attachment.size > MAX_ATTACHMENT_SIZE
+            ? "File must be 20 MB or smaller"
+            : "Choose an image, video, audio file, or PDF";
+      }
+    }
     setErrors(e);
     return Object.keys(e).length === 0;
   }
 
-  function onSubmit(ev: React.FormEvent) {
+  async function onSubmit(ev: React.FormEvent) {
     ev.preventDefault();
     if (!validate()) return;
-    const subject = `New project enquiry from ${form.name}`;
-    const lines = [
-      `Name: ${form.name}`,
-      `Email: ${form.email}`,
-      `Budget: ${form.budget}`,
-      "",
-      "Message:",
-      form.message,
-    ];
-    if (method === "whatsapp") {
-      const text = [subject, "", ...lines].join("\n");
-      const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
-      window.open(url, "_blank", "noopener,noreferrer");
-    } else {
-      const url = `mailto:${RECIPIENT}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
-      window.location.href = url;
+    setUploading(true);
+    setErrors({});
+
+    try {
+      let attachmentLink = "";
+
+      if (attachment) {
+        const safeName = attachment.name.replace(/[^a-zA-Z0-9._-]/g, "-").slice(-160);
+        const path = `inquiries/${crypto.randomUUID()}-${safeName}`;
+        const { error: uploadError } = await supabase.storage
+          .from("contact-attachments")
+          .upload(path, attachment, { contentType: attachment.type, upsert: false });
+
+        if (uploadError) throw uploadError;
+
+        const { data: signedUrlData, error: signedUrlError } = await supabase.storage
+          .from("contact-attachments")
+          .createSignedUrl(path, 60 * 60 * 24 * 7);
+
+        if (signedUrlError || !signedUrlData?.signedUrl) {
+          throw signedUrlError ?? new Error("Unable to create the attachment link");
+        }
+
+        attachmentLink = signedUrlData.signedUrl;
+      }
+
+      const subject = `New project enquiry from ${form.name}`;
+      const lines = [
+        `Name: ${form.name}`,
+        `Email: ${form.email}`,
+        `Budget: ${form.budget}`,
+        "",
+        "Message:",
+        form.message,
+        ...(attachmentLink ? ["", "Attached media:", attachmentLink] : []),
+      ];
+      if (method === "whatsapp") {
+        const text = [subject, "", ...lines].join("\n");
+        const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+        window.open(url, "_blank", "noopener,noreferrer");
+      } else {
+        const url = `mailto:${RECIPIENT}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+        window.location.href = url;
+      }
+      setSent(true);
+    } catch (error) {
+      console.error("Contact attachment upload failed", error);
+      setErrors({ attachment: "That file could not be uploaded. Please try again." });
+    } finally {
+      setUploading(false);
     }
-    setSent(true);
   }
 
   const field =
@@ -86,6 +158,8 @@ export function ContactForm() {
               onClick={() => {
                 setSent(false);
                 setForm({ name: "", email: "", budget: budgets[1], message: "" });
+                setAttachment(null);
+                setErrors({});
               }}
               className="mt-6 text-xs uppercase tracking-[0.3em] text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
             >
@@ -182,6 +256,38 @@ export function ContactForm() {
             </div>
 
             <div>
+              <label
+                htmlFor="cf-attachment"
+                className="mb-2 block text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground"
+              >
+                Attach media{" "}
+                <span className="normal-case tracking-normal text-muted-foreground/60">
+                  (optional)
+                </span>
+              </label>
+              <input
+                id="cf-attachment"
+                name="attachment"
+                type="file"
+                accept="image/*,video/*,audio/*,application/pdf"
+                onChange={(event) => {
+                  const nextFile = event.target.files?.[0] ?? null;
+                  setAttachment(nextFile);
+                  setErrors((current) => ({ ...current, attachment: "" }));
+                }}
+                className="block w-full cursor-pointer rounded-xl border border-dashed border-white/15 bg-white/[0.03] px-4 py-3 text-sm text-muted-foreground file:mr-3 file:rounded-full file:border-0 file:bg-white/[0.08] file:px-3 file:py-1.5 file:text-xs file:font-medium file:text-foreground hover:border-white/30"
+              />
+              <p className="mt-2 text-xs text-muted-foreground/70">
+                {attachment
+                  ? `${attachment.name} · ${(attachment.size / 1024 / 1024).toFixed(1)} MB`
+                  : "Images, videos, audio, or PDFs up to 20 MB"}
+              </p>
+              {errors.attachment && (
+                <p className="mt-1 text-xs text-red-400">{errors.attachment}</p>
+              )}
+            </div>
+
+            <div>
               <label className="mb-2 block text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">
                 Send via
               </label>
@@ -215,11 +321,16 @@ export function ContactForm() {
 
             <motion.button
               type="submit"
+              disabled={uploading}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium tracking-tight text-background transition hover:bg-foreground/90"
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium tracking-tight text-background transition hover:bg-foreground/90 disabled:cursor-wait disabled:opacity-60"
             >
-              {method === "whatsapp" ? "Send via WhatsApp" : "Send via Email"}
+              {uploading
+                ? "Preparing…"
+                : method === "whatsapp"
+                  ? "Send via WhatsApp"
+                  : "Send via Email"}
               <svg
                 viewBox="0 0 24 24"
                 className="h-4 w-4"
