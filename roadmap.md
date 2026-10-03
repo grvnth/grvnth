@@ -1,0 +1,6 @@
+- [x] Confirm sole dashboard email and contact attachment sharing preference
+- [x] Create portfolio content tables, access policies, media bucket, and migrate current projects
+- [ ] Build private mobile-friendly management screens for sections and projects
+- [ ] Switch the public showcase to live portfolio content while preserving current styling
+- [ ] Add Gumroad link near the contact button
+- [ ] Validate dashboard, publishing workflow, production build, and review remaining storage exposure finding

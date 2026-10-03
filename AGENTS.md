@@ -10,3 +10,5 @@
 > the editor, so keep the branch in a working state.
 
 <!-- LOVABLE:END -->
+
+- Portfolio sections and projects are authored in Lovable Cloud; public surfaces read published records and management access is enforced by database policies so content stays editable without code changes.
