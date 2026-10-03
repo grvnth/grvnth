@@ -14,7 +14,104 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      portfolio_projects: {
+        Row: {
+          client_name: string | null
+          created_at: string
+          description: string
+          display_order: number
+          featured: boolean
+          id: string
+          media_paths: string[]
+          project_year: number | null
+          published: boolean
+          section_id: string
+          tags: string[]
+          title: string
+          updated_at: string
+          video_path: string | null
+          video_url: string | null
+        }
+        Insert: {
+          client_name?: string | null
+          created_at?: string
+          description?: string
+          display_order?: number
+          featured?: boolean
+          id?: string
+          media_paths?: string[]
+          project_year?: number | null
+          published?: boolean
+          section_id: string
+          tags?: string[]
+          title: string
+          updated_at?: string
+          video_path?: string | null
+          video_url?: string | null
+        }
+        Update: {
+          client_name?: string | null
+          created_at?: string
+          description?: string
+          display_order?: number
+          featured?: boolean
+          id?: string
+          media_paths?: string[]
+          project_year?: number | null
+          published?: boolean
+          section_id?: string
+          tags?: string[]
+          title?: string
+          updated_at?: string
+          video_path?: string | null
+          video_url?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "portfolio_projects_section_id_fkey"
+            columns: ["section_id"]
+            isOneToOne: false
+            referencedRelation: "portfolio_sections"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      portfolio_sections: {
+        Row: {
+          cover_path: string | null
+          created_at: string
+          description: string
+          display_order: number
+          id: string
+          name: string
+          slug: string
+          updated_at: string
+          visible: boolean
+        }
+        Insert: {
+          cover_path?: string | null
+          created_at?: string
+          description?: string
+          display_order?: number
+          id?: string
+          name: string
+          slug: string
+          updated_at?: string
+          visible?: boolean
+        }
+        Update: {
+          cover_path?: string | null
+          created_at?: string
+          description?: string
+          display_order?: number
+          id?: string
+          name?: string
+          slug?: string
+          updated_at?: string
+          visible?: boolean
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
