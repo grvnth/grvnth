@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import showcase1 from "@/assets/showcase-1.png";
 import showcase2 from "@/assets/showcase-2.png";
@@ -46,11 +46,14 @@ import reelCover1 from "@/assets/reel-cover-1.jpg";
 import reelCover2 from "@/assets/reel-cover-2.jpg";
 import reelCover3 from "@/assets/reel-cover-3.jpg";
 import { MediaImage } from "@/components/MediaImage";
+import { useServerFn } from "@tanstack/react-start";
+import { getPublishedPortfolio } from "@/lib/portfolio.functions";
 import { Reveal } from "../Reveal";
 
 type Slide = { src: string; alt: string };
 
 type Project = {
+  id?: string;
   number: string;
   category: string;
   title: string;
@@ -288,6 +291,33 @@ function ShowcaseCard({ project }: { project: Project }) {
 }
 
 export function Showcase() {
+  const getPortfolio = useServerFn(getPublishedPortfolio);
+  const [liveProjects, setLiveProjects] = useState<Project[] | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    void getPortfolio().then((result) => {
+      if (!active) return;
+      const projectsFromCloud = [...result.projects]
+        .sort((a, b) => a.display_order - b.display_order)
+        .map((project, index) => ({
+          id: project.id,
+          number: String(index + 1).padStart(2, "0"),
+          category: result.sections.find((section) => section.id === project.section_id)?.name ?? "Selected work",
+          title: project.title,
+          description: project.description,
+          frame: "portrait" as const,
+          slides: project.media_paths.map((src, slideIndex) => ({ src, alt: `${project.title}, image ${slideIndex + 1}` })),
+        }));
+      setLiveProjects(projectsFromCloud);
+    }).catch(() => {
+      // Keep the bundled work visible if the content service is temporarily unavailable.
+    });
+    return () => { active = false; };
+  }, [getPortfolio]);
+
+  const shownProjects = liveProjects ?? projects;
+
   return (
     <section id="work" className="relative px-5 py-28 sm:py-40">
       <div className="mx-auto max-w-6xl">
@@ -315,8 +345,8 @@ export function Showcase() {
         </div>
 
         <div className="mt-16 grid gap-x-6 gap-y-16 sm:grid-cols-2 sm:gap-y-20">
-          {projects.map((project) => (
-            <ShowcaseCard key={project.number} project={project} />
+          {shownProjects.map((project) => (
+            <ShowcaseCard key={project.id ?? project.number} project={project} />
           ))}
         </div>
 
