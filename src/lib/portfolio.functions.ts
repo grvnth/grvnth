@@ -1,13 +1,29 @@
 import { createServerFn } from "@tanstack/react-start";
 import { createClient } from "@supabase/supabase-js";
+import type { Database } from "@/integrations/supabase/types";
 
-const adminEmail = "grvnth.design@gmail.com";
+function createPublicFetch(key: string): typeof fetch {
+  return (input, init) => {
+    const headers = new Headers(
+      typeof Request !== "undefined" && input instanceof Request ? input.headers : undefined,
+    );
+    if (init?.headers) new Headers(init.headers).forEach((value, name) => headers.set(name, value));
+    if (key.startsWith("sb_") && headers.get("Authorization") === `Bearer ${key}`) {
+      headers.delete("Authorization");
+    }
+    headers.set("apikey", key);
+    return fetch(input, { ...init, headers });
+  };
+}
 
 export const getPublishedPortfolio = createServerFn({ method: "GET" }).handler(async () => {
   const url = process.env["SUPABASE_URL"];
   const key = process.env["SUPABASE_PUBLISHABLE_KEY"];
   if (!url || !key) throw new Error("Portfolio content is unavailable.");
-  const publicClient = createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
+  const publicClient = createClient<Database>(url, key, {
+    global: { fetch: createPublicFetch(key) },
+    auth: { storage: undefined, persistSession: false, autoRefreshToken: false },
+  });
   const [{ data: sections, error: sectionError }, { data: projects, error: projectError }] = await Promise.all([
     publicClient.from("portfolio_sections").select("id,name,slug,description,cover_path,display_order,visible").eq("visible", true).order("display_order"),
     publicClient.from("portfolio_projects").select("id,section_id,title,description,media_paths,video_path,video_url,tags,client_name,project_year,featured,display_order,published").eq("published", true).order("display_order"),
@@ -33,6 +49,5 @@ export const getPublishedPortfolio = createServerFn({ method: "GET" }).handler(a
       video_path: project.video_path ? signed.get(project.video_path) ?? null : null,
     })),
     expiresIn: 3600,
-    owner: adminEmail,
   };
 });
