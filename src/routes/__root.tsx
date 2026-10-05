@@ -7,7 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { lazy, useEffect, type ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
@@ -89,7 +89,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function RootErrorScreen({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -126,6 +126,8 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     </div>
   );
 }
+
+const ErrorComponent = lazy(() => Promise.resolve({ default: RootErrorScreen }));
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({

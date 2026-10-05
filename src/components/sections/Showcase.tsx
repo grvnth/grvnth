@@ -50,7 +50,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { getPublishedPortfolio } from "@/lib/portfolio.functions";
 import { Reveal } from "../Reveal";
 
-type Slide = { src: string; alt: string };
+type Slide = { src: string; alt: string; kind?: "video" | "pdf" };
 
 type Project = {
   id?: string;
@@ -193,6 +193,10 @@ function ShowcaseCard({ project }: { project: Project }) {
   const hasCarousel = project.slides.length > 1;
   const slide = project.slides[active];
 
+  useEffect(() => {
+    setActive(0);
+  }, [project.id, project.slides.length]);
+
   const move = (direction: 1 | -1) => {
     setActive((current) => (current + direction + project.slides.length) % project.slides.length);
   };
@@ -209,17 +213,48 @@ function ShowcaseCard({ project }: { project: Project }) {
         className={`relative overflow-hidden rounded-2xl border border-border/70 bg-foreground/[0.04] ${project.frame === "square" ? "aspect-square" : "aspect-[4/5]"}`}
       >
         <AnimatePresence mode="wait" initial={false}>
-          <MediaImage
-            key={slide.src}
-            src={slide.src}
-            alt={slide.alt}
-            loading="lazy"
-            initial={{ opacity: 0, scale: 1.025 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.985 }}
-            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="h-full w-full object-contain transition-transform duration-700 ease-[var(--ease-premium)] group-hover:scale-[1.015]"
-          />
+          {slide?.kind === "video" ? (
+            <motion.video
+              key={slide.src}
+              src={slide.src}
+              aria-label={slide.alt}
+              controls
+              playsInline
+              preload="metadata"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.35 }}
+              className="h-full w-full object-contain"
+            />
+          ) : slide?.kind === "pdf" ? (
+            <motion.a
+              key={slide.src}
+              href={slide.src}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${slide.alt}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.35 }}
+              className="flex h-full w-full items-center justify-center text-sm font-medium text-foreground underline underline-offset-4"
+            >
+              Open PDF ↗
+            </motion.a>
+          ) : slide ? (
+            <MediaImage
+              key={slide.src}
+              src={slide.src}
+              alt={slide.alt}
+              loading="lazy"
+              initial={{ opacity: 0, scale: 1.025 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.985 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              className="h-full w-full object-contain transition-transform duration-700 ease-[var(--ease-premium)] group-hover:scale-[1.015]"
+            />
+          ) : null}
         </AnimatePresence>
 
         {hasCarousel && (
@@ -298,6 +333,12 @@ export function Showcase() {
     let active = true;
     void getPortfolio().then((result) => {
       if (!active) return;
+      const mediaKind = (src: string): Slide["kind"] => {
+        const cleanSrc = src.split(/[?#]/, 1)[0]?.toLowerCase() ?? "";
+        if (/\.(mp4|mov|webm|m4v)$/.test(cleanSrc)) return "video";
+        if (/\.pdf$/.test(cleanSrc)) return "pdf";
+        return undefined;
+      };
       const projectsFromCloud = [...result.projects]
         .sort((a, b) => a.display_order - b.display_order)
         .map((project, index) => ({
@@ -307,7 +348,15 @@ export function Showcase() {
           title: project.title,
           description: project.description,
           frame: "portrait" as const,
-          slides: project.media_paths.map((src, slideIndex) => ({ src, alt: `${project.title}, image ${slideIndex + 1}` })),
+          slides: [
+            ...project.media_paths.map((src, slideIndex) => ({
+              src,
+              alt: `${project.title}, media ${slideIndex + 1}`,
+              kind: mediaKind(src),
+            })),
+            ...(project.video_path ? [{ src: project.video_path, alt: `${project.title}, video`, kind: "video" as const }] : []),
+            ...(project.video_url ? [{ src: project.video_url, alt: `${project.title}, video`, kind: mediaKind(project.video_url) ?? "video" as const }] : []),
+          ],
         }));
       setLiveProjects(projectsFromCloud);
     }).catch(() => {

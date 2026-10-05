@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import socialHomepageAsset from "@/assets/social-homepage.jpg.asset.json";
 import { Background } from "@/components/Background";
 import { CursorGlow } from "@/components/CursorGlow";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
@@ -32,13 +31,10 @@ export const Route = createFileRoute("/")({
     const origin = await getRequestOrigin();
     return {
       origin,
-      socialImageUrl: `${origin}${socialHomepageAsset.url}`,
     };
   },
   head: ({ loaderData }) => {
     const origin = loaderData?.origin ?? fallbackOrigin;
-    const socialImageUrl =
-      loaderData?.socialImageUrl ?? `${fallbackOrigin}${socialHomepageAsset.url}`;
     return {
       meta: [
         { title },
@@ -47,10 +43,8 @@ export const Route = createFileRoute("/")({
         { property: "og:description", content: description },
         { property: "og:url", content: `${origin}/` },
         { property: "og:type", content: "website" },
-        { property: "og:image", content: socialImageUrl },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
-        { name: "twitter:image", content: socialImageUrl },
       ],
       links: [{ rel: "canonical", href: `${origin}/` }],
       scripts: [
