@@ -140,18 +140,20 @@ export function PortfolioAdmin() {
 
   async function deleteSection(section: Section) {
     const items = projects.filter((project) => project.section_id === section.id);
+    const choices = sections.filter((item) => item.id !== section.id);
     let moveTo: string | null = null;
     if (items.length) {
-      const choices = sections.filter((item) => item.id !== section.id);
       if (!choices.length) { toast.error("Create another section before removing this one."); return; }
       const selected = window.prompt(`Move ${items.length} project(s) to which section? Enter the exact name: ${choices.map((item) => item.name).join(", ")}`);
       if (!selected) return;
       moveTo = choices.find((item) => item.name.toLowerCase() === selected.trim().toLowerCase())?.id ?? null;
       if (!moveTo) { toast.error("Section name did not match. Nothing was changed."); return; }
+    }
+    if (!window.confirm(`Delete section “${section.name}”?${items.length ? ` Its ${items.length} project(s) will move to ${choices.find((item) => item.id === moveTo)?.name ?? "the chosen section"}.` : ""}`)) return;
+    if (items.length && moveTo) {
       const moved = await supabase.from("portfolio_projects").update({ section_id: moveTo }).eq("section_id", section.id);
       if (moved.error) { toast.error(moved.error.message); return; }
     }
-    if (!window.confirm(`Delete section “${section.name}”?${items.length ? ` Its ${items.length} project(s) will move first.` : ""}`)) return;
     const { error } = await supabase.from("portfolio_sections").delete().eq("id", section.id);
     if (error) toast.error(error.message); else { toast.success("Section deleted."); await load(); }
   }

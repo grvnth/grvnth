@@ -89,7 +89,7 @@ function NotFoundComponent() {
   );
 }
 
-function RootErrorScreen({ error, reset }: { error: Error; reset: () => void }) {
+function RootErrorScreen({ error, reset }: { error: unknown; reset: () => void }) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
