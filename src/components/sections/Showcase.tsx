@@ -47,6 +47,7 @@ import reelCover2 from "@/assets/reel-cover-2.jpg";
 import reelCover3 from "@/assets/reel-cover-3.jpg";
 import { MediaImage } from "@/components/MediaImage";
 import { useServerFn } from "@tanstack/react-start";
+import { Link } from "@tanstack/react-router";
 import { getPublishedPortfolio } from "@/lib/portfolio.functions";
 import { Reveal } from "../Reveal";
 
@@ -56,6 +57,7 @@ type Project = {
   id?: string;
   number: string;
   category: string;
+  sectionSlug?: string;
   title: string;
   description: string;
   slides: Slide[];
@@ -290,7 +292,7 @@ function ShowcaseCard({ project }: { project: Project }) {
       <div className="mt-5 flex items-start justify-between gap-4">
         <div>
           <p className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-muted-foreground">
-            {project.number} · {project.category}
+            {project.number} · {project.sectionSlug ? <Link to="/work/$slug" params={{ slug: project.sectionSlug }} className="transition-colors hover:text-foreground">{project.category}</Link> : project.category}
           </p>
           <h3 className="mt-2 font-display text-2xl font-bold leading-tight tracking-tight sm:text-3xl">
             {project.title}
@@ -345,6 +347,7 @@ export function Showcase() {
           id: project.id,
           number: String(index + 1).padStart(2, "0"),
           category: result.sections.find((section) => section.id === project.section_id)?.name ?? "Selected work",
+          sectionSlug: result.sections.find((section) => section.id === project.section_id)?.slug,
           title: project.title,
           description: project.description,
           frame: "portrait" as const,
